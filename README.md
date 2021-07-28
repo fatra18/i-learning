@@ -100,3 +100,4 @@ The issue list is reserved exclusively for bug reports and feature requests. Tha
 # e-learning
 # e-learning
 # e-learning
+# i-learning
