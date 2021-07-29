@@ -1,4 +1,4 @@
-<aside class="aside is-placed-left is-expanded">
+<aside class="aside is-placed-left is-expanded ">
   <div class="aside-tools ">
     <div>
       Admin <b class="font-black">One</b>

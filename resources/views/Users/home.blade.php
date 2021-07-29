@@ -277,7 +277,7 @@
      {{-- Article --}}
      <div class="grid grid-cols-12 gap-2 items-center mt-20" data-aos="fade-up">
 
-            <div class="col-span-6 ml-5 mt-5">z
+            <div class="col-span-6 ml-5 mt-5">
                 <a href="{{ route('article-details') }}">
                     <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="rounded-xl">
                 </a>

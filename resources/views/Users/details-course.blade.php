@@ -59,38 +59,9 @@
             <button type="button" onclick="toggleModal('modal-id')" class="bg-blue-500 text-gray-100 py-2 px-10 rounded-md shadow-xl focus:ring-2 focus:ring-gray-700">
                 Ulasan
             </button>
-            <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center ml-0 " id="modal-id">
-                <div class="relative  my-6 mx-auto max-w-3xl w-3/4 ml-96">
-                    {{-- content --}}
-                    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none top-0 ">
-                     {{-- header --}}
-                     <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                       <h1 class="text-3xl font-semibold">
-                            Give your opinion
-                       </h1>
-                       <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
-                        <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                          ×
-                        </span>
-                       </button>
-                     </div>
-                     {{-- body --}}
-                     <div class="relative p-6 flex-auto">
-                       <textarea name="" id="" class="outline-none w-full">
-                       </textarea>   
-                     </div>
-                     {{-- footer --}}
-                     <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                        <button class="text-red-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-                          Close
-                        </button>
-                        <button class="bg-gray-700 text-gray-100 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
-                </div>
-            </div>
+            
+            
+            
             <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
 
          </div>
@@ -98,7 +69,7 @@
      </div>
      
      <div class="w-2/3 ml-20 mt-14" data-aos="fade-right">
-        <p class="text-gray-100 text-md leading-6 ">
+        <p class="text-blue-900 text-md leading-6 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Ipsam quae iusto sapiente quam esse molestiae eius excepturi dignissimos.
             Dolore, incidunt omnis. Est, doloremque, iusto quam modi debitis quidem,
@@ -118,8 +89,8 @@
      <div class="flex items-center ml-20 mt-28" data-aos="fade-down">
          <img src="{{ asset('dist/img/teachers-2.jpg') }}" alt="" class="w-20 h-20 rounded-full">
          <div class="flex flex-col">
-            <p class="text-gray-100 text-sm font-bold ml-8">Kak Dia</p>
-            <small class="text-gray-100  ml-8">teacher</small>
+            <p class="text-blue-900 text-sm font-bold ml-8">Kak Dia</p>
+            <small class="text-blue-900  ml-8">teacher</small>
          </div>
      </div>
 
@@ -128,9 +99,9 @@
         <div class="flex flex-col items-center">
             <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
-                <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
-                <small class="text-gray-100 mb-2">student</small>
-                <p class="w-2/3 text-center text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
+                <p class="text-md text-blue-900 mt-3 mb-1">Fatra</p>
+                <small class="text-blue-900 mb-2">student</small>
+                <p class="w-2/3 text-center text-blue-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
                    error sunt aliquam corrupti ipsam necessitatibus debitis optio dolores?
                 </p>
             </div>
@@ -138,9 +109,9 @@
          <div class="flex flex-col items-center">
             <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
-                <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
-                <small class="text-gray-100 mb-2">student</small>
-                <p class="w-2/3 text-center text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
+                <p class="text-md text-blue-900 mt-3 mb-1">Fatra</p>
+                <small class="text-blue-900 mb-2">student</small>
+                <p class="w-2/3 text-center text-blue-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
                    error sunt aliquam corrupti ipsam necessitatibus debitis optio dolores?
                 </p>
             </div>
@@ -148,9 +119,9 @@
          <div class="flex flex-col items-center">
             <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
-                <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
-                <small class="text-gray-100 mb-2">student</small>
-                <p class="w-2/3 text-center text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
+                <p class="text-md text-blue-900 mt-3 mb-1">Fatra</p>
+                <small class="text-blue-900 mb-2">student</small>
+                <p class="w-2/3 text-center text-blue-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus nemo 
                    error sunt aliquam corrupti ipsam necessitatibus debitis optio dolores?
                 </p>
             </div>
@@ -158,6 +129,40 @@
         
      </div>
     </div>
+
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center ml-0" id="modal-id">
+       <div class="absolute inset-0 bg-black opacity-80"></div>
+      <div class="relative  my-6 mx-auto max-w-3xl w-3/4 ml-96">
+          {{-- content --}}
+          <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none top-0 ">
+           {{-- header --}}
+           <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+             <h1 class="text-3xl font-semibold">
+                  Give your opinion
+             </h1>
+             <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
+              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                ×
+              </span>
+             </button>
+           </div>
+           {{-- body --}}
+           <div class="relative p-6 flex-auto">
+             <textarea name="" id="" class="outline-none w-full">
+             </textarea>   
+           </div>
+           {{-- footer --}}
+           <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+              <button class="text-red-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
+                Close
+              </button>
+              <button class="bg-gray-700 text-gray-100 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
+                Save Changes
+              </button>
+            </div>
+          </div>
+      </div>
+  </div>
    
     {{-- Footer --}}
     <div data-aos="fade-up">

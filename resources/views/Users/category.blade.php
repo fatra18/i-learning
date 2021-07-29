@@ -7,7 +7,7 @@
     @include('Layout.header')
     @section('title','category')
 </head>
-<body class="bg-gray-900">
+<body class="bg-gray-100">
     <div class="container-fluid">
         
         {{-- Navbar --}}
@@ -18,25 +18,25 @@
                 Page-Category
             </div>
             <div class="flex" >
-                <div class="border-2 border-gray-100 w-1/4 bg-gray-700 my-10 ml-5 h-full" data-aos="fade-down">
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-3 text-xl font-bold ">Fullstack Developer</a>
+                <div class="border-2 border-gray-100 w-1/4 bg-blue-900 my-10 ml-5 h-full rounded-md" data-aos="fade-down">
+                    <div class="text-gray-100 my-5 ">
+                        <a href="#" class="ml-7 text-xl font-bold ">Fullstack Developer</a>
                         <div class="border-b-2 w-full mt-5"></div>
                     </div>
                     <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-3 text-xl font-bold">UI UX</a>
+                        <a href="#" class="ml-7 text-xl font-bold">UI UX</a>
                         <div class="border-b-2 w-full mt-5"></div>
                     </div>
                     <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-3 text-xl font-bold">Backend</a>
+                        <a href="#" class="ml-7 text-xl font-bold">Backend</a>
                         <div class="border-b-2 w-full mt-5"></div>
                     </div>
                     <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-3 text-xl font-bold">Frontend</a>
+                        <a href="#" class="ml-7 text-xl font-bold">Frontend</a>
                         <div class="border-b-2 w-full mt-5"></div>
                     </div>
                     <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-3 text-xl font-bold">Ilustrator</a>
+                        <a href="#" class="ml-7 text-xl font-bold">Ilustrator</a>
                         <div class="border-b-2 w-full mt-5"></div>
                     </div>
                     <div class="text-gray-100 my-5">
