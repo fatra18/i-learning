@@ -4,20 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>@yield('title')</title>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-
+    
     @include('Layout.header')
     @section('title','home')
 </head>
 <body class="bg-gray-900 overflow-auto">
    <div class="container mx-auto">
      <div class="mt-6" >
-         <img class="absolute inset-x-0 bottom-0 h-full w-full bg-cover bg-center"src="/dist/img/jumbotron.jpg" alt="">
+         <img class="absolute inset-x-0 bottom-0 h-full w-full bg-cover bg-center"src="{{ asset('dist/img/jumbotron.jpg') }}" alt="">
          <div class="absolute inset-0 h-full w-full bo bg-gray-700 bg-opacity-40"></div>
      </div>  
      
@@ -48,21 +42,21 @@
      <div class="relative mt-20" data-aos="fade-up">
          <div class="flex bg-gray-100 py-10 justify-evenly border-2 border-gray-400 rounded-2xl">
              <div class="flex items-center">
-                 <img src="{{ asset('/dist/img/category-design.svg') }}" alt="" class="w-44">
+                 <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-44">
                  <div class=" ml-5">
                      <h1 class="text-2xl text-gray-900">Design</h1>
                      <p class="text-black">111111111</p>
                  </div>
              </div>
              <div class="flex items-center">
-                 <img src="{{ asset('/dist/img/category-programming.svg') }}" alt="" class="w-44">
+                 <img src="{{ asset('dist/img/category-programming.svg') }}" alt="" class="w-44">
                  <div class=" ml-5">
                      <h1 class="text-2xl text-gray-700">Programming</h1>
                      <p class="text-black">111111111</p>
                  </div>
              </div>
              <div class="flex items-center">
-                 <img src="{{ asset('/dist/img/category-videografer.svg')}}" alt="" class="w-44">
+                 <img src="{{ asset('dist/img/category-videografer.svg')}}" alt="" class="w-44">
                  <div class=" ml-5">
                      <h1 class="text-2xl text-gray-700">VideoGrapich</h1>
                      <p class="text-black">111111111</p>

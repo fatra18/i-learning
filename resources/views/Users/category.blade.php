@@ -55,7 +55,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
                     <div class="bg-gray-100 shadow-sm w-5/12 h-2/5 ml-10 mt-8 flex rounded-r-xl rounded-l-lg">
                         <div class="ml-5">
@@ -68,7 +68,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('/dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
                     <div class="bg-gray-100 shadow-sm w-5/12 h-2/5 ml-16 mt-8 flex rounded-r-xl rounded-l-lg">
                         <div class="ml-5">
@@ -81,7 +81,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
                     <div class="bg-gray-100 shadow-sm w-5/12 h-2/5 ml-10 mt-8 flex rounded-r-xl rounded-l-lg">
                         <div class="ml-5">
@@ -94,7 +94,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
               
                     <div class="bg-gray-100 shadow-sm w-5/12 h-2/5 ml-16 mt-8 flex mb-10 rounded-r-xl rounded-l-lg">
@@ -108,7 +108,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
               
                     <div class="bg-gray-100 shadow-sm w-5/12 h-2/5 ml-10 mt-8 mb-10 flex rounded-r-xl rounded-l-lg">
@@ -122,7 +122,7 @@
                             <small class="font-bold ">user_id</small>    
                          </div>                 
                         </div>
-                        <img src="/dist/img/category-design.svg" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
+                        <img src="{{ asset('dist/img/category-design.svg') }}" alt="" class="w-40 h-68 bg-cover bg-center rounded-r-xl mx-3">
                     </div>
               
                 </div>

@@ -14,7 +14,7 @@
     @include('Layout.navbar')
 
     <div class="flex items-center w-full justify-center mt-10 flex-col border-2 mb-10">
-        <img src="/dist/img/alex.jpg" alt="" class="w-1/4 bg-cover bg-center rounded-xl h-1/4 mt-5 border-2 border-gray-700 shadow-xl">
+        <img src="{{ asset('dist/img/alex.jpg') }}" alt="" class="w-1/4 bg-cover bg-center rounded-xl h-1/4 mt-5 border-2 border-gray-700 shadow-xl">
         <div class="flex justify-center   w-full ">   
             <div class="text-gray-100 ml-5 flex items-center justify-between w-1/4 mt-3">
                 <p class="">Kak Sayang</p>

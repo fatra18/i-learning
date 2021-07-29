@@ -2,7 +2,7 @@
 <nav class=" py-5 sticky top-0 z-50  container-fluid" id="navbar">
     <div class="flex justify-center items-center ">
         <div class="ml-8 ">
-           <img src="/dist/img/Logo.png" alt="" class="w-10">
+           <img src="{{ asset('dist/img/Logo.png') }}" alt="" class="w-10">
         </div>
         <div class="flex justify-between w-full ">
              <div class="ml-40 text-gray-100">

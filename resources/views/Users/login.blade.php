@@ -11,7 +11,7 @@
     <div class="bg-gray-100 rounded-xl w-11/12 mx-auto flex justify-center  mt-7 mb-5">
         <div class="flex">
             <div>
-                <img src="/dist/img/login.svg" alt="" class="w-4/5 py-20" >
+                <img src="{{ asset('dist/img/login.svg') }}" alt="" class="w-4/5 py-20" >
             </div>
             <div class="flex flex-col  mr-28">
                <div class="flex flex-col items-center my-20">

@@ -116,7 +116,7 @@
     
      
      <div class="flex items-center ml-20 mt-28">
-         <img src="/dist/img/teachers-2.jpg" alt="" class="w-20 h-20 rounded-full">
+         <img src="{{ asset('dist/img/teachers-2.jpg') }}" alt="" class="w-20 h-20 rounded-full">
          <div class="flex flex-col">
             <p class="text-gray-100 text-sm font-bold ml-8">Kak Dia</p>
             <small class="text-gray-100  ml-8">teacher</small>
@@ -126,7 +126,7 @@
      
      <div class="flex mt-60">
         <div class="flex flex-col items-center">
-            <img src="/dist/img/org.jpg" alt="" class="rounded-full w-14 h-14">
+            <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
                 <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
                 <small class="text-gray-100 mb-2">student</small>
@@ -136,7 +136,7 @@
             </div>
          </div>
          <div class="flex flex-col items-center">
-            <img src="/dist/img/org.jpg" alt="" class="rounded-full w-14 h-14">
+            <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
                 <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
                 <small class="text-gray-100 mb-2">student</small>
@@ -146,7 +146,7 @@
             </div>
          </div>
          <div class="flex flex-col items-center">
-            <img src="/dist/img/org.jpg" alt="" class="rounded-full w-14 h-14">
+            <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
                 <p class="text-md text-gray-100 mt-3 mb-1">Fatra</p>
                 <small class="text-gray-100 mb-2">student</small>

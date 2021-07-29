@@ -11,7 +11,7 @@
     <div class="bg-gray-100 rounded-xl w-11/12 mx-auto flex justify-center flex-wrap-reverse mt-7 mb-5" >
         <div class="flex flex-row-reverse ">
             <div class="ml-14">
-                <img src="/dist/img/register.svg" alt="" class="py-28 mt-10" >
+                <img src="{{ asset('dist/img/register.svg') }}" alt="" class="py-28 mt-10" >
             </div>
             <div class="flex flex-col  ml-24">
                <div class="flex flex-col items-center my-20">

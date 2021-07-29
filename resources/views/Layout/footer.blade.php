@@ -22,10 +22,10 @@
 </div>
 
 <!-- Scripts below are for demo only -->
-<script type="text/javascript" src="{{ asset('/dist/js/main.min.js?v=1626274975328') }}"></script>
+<script type="text/javascript" src="{{ asset('dist/js/main.min.js?v=1626274975328') }}"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script type="text/javascript" src="{{ asset('/dist/js/chart.sample.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('dist/js/chart.sample.min.js') }}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
