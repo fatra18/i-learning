@@ -8,19 +8,19 @@
     <title>Detail-courses</title>
 
 </head>
-<body class="bg-gray-900">
+<body class="bg-gray-100">
    <div class="container mx-auto">  
      
      {{-- Navbar --}}
      @include('Layout.navbar')
      
-     <div class="flex flex-row justify-center my-10 ">
+     <div class="flex flex-row justify-center my-10 " data-aos="fade-down">
         <h1 class="text-gray-100 text-4xl font-bold">Details Course</h1>
         <p class="text-gray-100 text-4xl font-bold ml-5"> 01</p>
      </div>
      
-     <div class="flex justify-center">
-         <div class="border-2 border-gray-100 text-gray-100 w-1/4 bg-gray-700 shadow-xl mt-24 mr-20">
+     <div class="flex justify-center" data-aos="fade-down">
+         <div class="border-2 border-gray-100 text-gray-100 w-1/4 bg-blue-900 shadow-xl mt-24 mr-20">
              <div class="ml-5 mt-10 text-2xl">
                  <h1>Course Name</h1>
              </div>
@@ -52,17 +52,17 @@
 
             
          </div>
-         <div class="h-11/12">
+         <div class="h-11/12" data-aos="fade-down">
             <iframe width="715" height="402" class="mt-24 mb-5" src="https://www.youtube.com/embed/tNJtY7k6pEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
          
             </iframe>
-            <button type="button" onclick="toggleModal('modal-id')" class="bg-red-900 text-gray-100 py-2 px-10 rounded-md shadow-xl focus:ring-2 focus:ring-gray-700">
+            <button type="button" onclick="toggleModal('modal-id')" class="bg-blue-500 text-gray-100 py-2 px-10 rounded-md shadow-xl focus:ring-2 focus:ring-gray-700">
                 Ulasan
             </button>
-            <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center ml-40 mt-40" id="modal-id">
+            <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center ml-0 " id="modal-id">
                 <div class="relative  my-6 mx-auto max-w-3xl w-3/4 ml-96">
                     {{-- content --}}
-                    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none ">
+                    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none top-0 ">
                      {{-- header --}}
                      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                        <h1 class="text-3xl font-semibold">
@@ -97,7 +97,7 @@
          
      </div>
      
-     <div class="w-2/3 ml-20 mt-14">
+     <div class="w-2/3 ml-20 mt-14" data-aos="fade-right">
         <p class="text-gray-100 text-md leading-6 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Ipsam quae iusto sapiente quam esse molestiae eius excepturi dignissimos.
@@ -115,7 +115,7 @@
 
     
      
-     <div class="flex items-center ml-20 mt-28">
+     <div class="flex items-center ml-20 mt-28" data-aos="fade-down">
          <img src="{{ asset('dist/img/teachers-2.jpg') }}" alt="" class="w-20 h-20 rounded-full">
          <div class="flex flex-col">
             <p class="text-gray-100 text-sm font-bold ml-8">Kak Dia</p>
@@ -124,7 +124,7 @@
      </div>
 
      
-     <div class="flex mt-60">
+     <div class="flex mt-60" data-aos="fade-down">
         <div class="flex flex-col items-center">
             <img src="{{ asset('dist/img/org.jpg') }}" alt="" class="rounded-full w-14 h-14">
             <div class="flex flex-col items-center">
@@ -160,7 +160,10 @@
     </div>
    
     {{-- Footer --}}
-    @include('Layout.footer')
+    <div data-aos="fade-up">
+       @include('Layout.footer')
+
+    </div>
 
 
     <script type="text/javascript">

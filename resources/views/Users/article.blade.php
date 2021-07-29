@@ -13,21 +13,21 @@
     {{-- Navbar --}}
     @include('Layout.navbar')
      
-    <div class="flex items-center w-full justify-center mt-10 flex-col">
-        <{img src="{{ asset('dist/img/article.jpg') }}" alt="" class="w-3/5 bg-cover bg-center rounded-xl border-2 border-gray-700 shadow-xl">
+    <div class="flex items-center w-full justify-center mt-10 flex-col" data-aos="fade-up">
+        <img src="{{ asset('dist/img/article.jpg') }}" alt="" class="w-3/5 bg-cover bg-center rounded-xl border-2 border-gray-700 shadow-xl">
         <div class="flex justify-evenly  w-full">   
-            <div class="text-gray-100 ml-5">
+            <div class="text-gray-100 ml-5" data-aos="fade-up">
                 <p class="mt-5 mb-1">Mantan gamer yang menjadi Programmer</p>
                 <small class="font-bold">Admin</small>
                
             </div>
-            <div class="text-gray-100">
+            <div class="text-gray-100" data-aos="fade-up">
                 <p class="mt-5 mb-1">Programmer</p>
                 <small class="font-bold">18-05-2002</small>
             </div>
         </div>
         <div class="border-2 border-gray-100 w-full mt-5"></div>
-        <p class="text-center text-gray-100 mt-10 w-4/6 mb-5 leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eius itaque dolore sequi impedit nihil, reiciendis sunt amet pariatur adipisci dolorum nostrum praesentium aperiam, recusandae voluptate? Quibusdam quasi expedita odio.
+        <p class="text-center text-gray-100 mt-10 w-4/6 mb-5 leading-7" data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eius itaque dolore sequi impedit nihil, reiciendis sunt amet pariatur adipisci dolorum nostrum praesentium aperiam, recusandae voluptate? Quibusdam quasi expedita odio.
         Dolore, eius. Expedita itaque sed iusto impedit unde quasi animi tempore voluptate, officiis, corporis laborum adipisci ratione veritatis facere esse, rerum quibusdam quam sint vel. Est excepturi consectetur odit obcaecati!
         Deleniti natus facere est corrupti dolores quam, vel quia quas nam repellat excepturi similique, quaerat illum ex consectetur esse voluptates quos veritatis blanditiis id cupiditate mollitia repellendus. Tempore, error odio?
         Et quis dolorum sit assumenda at facere eaque quo eius rem reiciendis fugit labore corrupti tempore sequi consequuntur odio, velit sed obcaecati, repellat autem, eligendi quasi doloribus beatae? Similique, eius.

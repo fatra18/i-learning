@@ -15,7 +15,7 @@
      @include('Layout.navbar')
 
      <div class="">
-         <div class="flex flex-col justify-around  mx-auto ">
+         <div class="flex flex-col justify-around  mx-auto " data-aos="fade-right">
             <h1 class="text-gray-100 text-center text-lg font-bold mt-20">My Account</h1>
             <div class="flex items-center ml-56 mt-20">
                 <img src="{{ asset('dist/img/teachers-2.jpg') }}" alt="" class="w-40 h-40 rounded-full bg-cover bg-center">
