@@ -12,7 +12,7 @@
    <div class="container mx-auto">
      <div class="mt-6" >
          <img class="absolute inset-x-0 bottom-0 h-full w-full bg-cover bg-center" src="{{ asset('dist/img/jumbotron.jpg') }}" alt="">
-         <div class="absolute inset-0 h-full w-full bo bg-blue-900 bg-opacity-50"></div>
+         <div class="absolute inset-0 h-full w-full bo bg-blue-900 bg-opacity-30"></div>
      </div>  
      
      @include('Layout.navbar')
@@ -282,7 +282,7 @@
                     <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="rounded-xl">
                 </a>
             </div>
-            <div class="col-span-3 mt-5">
+            <div class="col-span-3 mt-0">
                <a href="{{ route('article-details') }}">
                  <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="w-11/12 my-5 rounded-xl ml-5">
                </a>
@@ -291,7 +291,7 @@
 
                </a>
             </div>
-            <div class="col-span-3 mt-5">
+            <div class="col-span-3 mt-0">
                 <a href="{{ route('article-details') }}">
                     <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="w-11/12 my-5 rounded-xl">
                 </a>

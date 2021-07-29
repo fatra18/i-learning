@@ -11,8 +11,8 @@
                  <a href="{{ route('category-pages') }}" class="pl-7 text-gray-100">Category</a>
              </div>
              <div class="mr-20 ">
-                <a href="" class="bg-blue-500 shadow-xl text-gray-100 px-5 py-2 rounded-md mr-5">Singin</a>
-                <a href="" class="bg-red-600 shadow-sm text-gray-100 px-5 py-2 rounded-md">Singup</a>
+                <a href="{{ route('login') }}" class="bg-blue-500 shadow-xl text-gray-100 px-5 py-2 rounded-md mr-5">Singin</a>
+                <a href="{{ route('register') }}" class="bg-red-600 shadow-sm text-gray-100 px-5 py-2 rounded-md">Singup</a>
              </div>
         </div>
     </div>

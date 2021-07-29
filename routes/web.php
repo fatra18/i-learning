@@ -224,11 +224,11 @@ Route::prefix('/')->group(function () {
     
     Route::get('login', function () {
         return view('Users.login');
-    });
+    })->name('login');
      
     Route::get('register', function () {
         return view('Users.register');
-    });
+    })->name('register');
      
     Route::get('category', function () {
         return view('Users.category');

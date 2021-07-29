@@ -9,14 +9,14 @@
 </head>
 <body class="bg-gray-100">
 
-  <div class="container-fluid">
+  <div class="container mx-auto">
     {{-- Navbar --}}
     @include('Layout.navbar')
 
     <div class="flex items-center w-full justify-center mt-10 flex-col border-2 mb-10" data-aos="fade-down">
         <img src="{{ asset('dist/img/alex.jpg') }}" alt="" class="w-1/4 bg-cover bg-center rounded-xl h-1/4 mt-5 border-2 border-gray-700 shadow-xl">
         <div class="flex justify-center   w-full ">   
-            <div class="text-gray-100 ml-5 flex items-center justify-between w-1/4 mt-3 text-blue-900">
+            <div class="ml-5 flex items-center justify-between w-1/4 mt-3 text-blue-900">
                 <p class="">Kak Sayang</p>
                 <p class="">Fullstack developer</p>
                
@@ -24,7 +24,7 @@
             
         </div>
         <div class="border-2 border-gray-100 w-full mt-5 text-blue-900"></div>
-        <p class="text-center text-gray-100 mt-10 w-4/6 mb-5 leading-7 text-blue-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eius itaque dolore sequi impedit nihil, reiciendis sunt amet pariatur adipisci dolorum nostrum praesentium aperiam, recusandae voluptate? Quibusdam quasi expedita odio.
+        <p class="text-center  mt-10 w-4/6 mb-5 leading-7 text-blue-900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eius itaque dolore sequi impedit nihil, reiciendis sunt amet pariatur adipisci dolorum nostrum praesentium aperiam, recusandae voluptate? Quibusdam quasi expedita odio.
         Dolore, eius. Expedita itaque sed iusto impedit unde quasi animi tempore voluptate, officiis, corporis laborum adipisci ratione veritatis facere esse, rerum quibusdam quam sint vel. Est excepturi consectetur odit obcaecati!
         Deleniti natus facere est corrupti dolores quam, vel quia quas nam repellat excepturi similique, quaerat illum ex consectetur esse voluptates quos veritatis blanditiis id cupiditate mollitia repellendus. Tempore, error odio?
         Et quis dolorum sit assumenda at facere eaque quo eius rem reiciendis fugit labore corrupti tempore sequi consequuntur odio, velit sed obcaecati, repellat autem, eligendi quasi doloribus beatae? Similique, eius.
@@ -36,11 +36,13 @@
         Qui, eveniet. Dolore autem voluptatum ullam libero? Provident, earum voluptatum? Fugit ducimus dolor necessitatibus tenetur neque at ullam accusantium, laudantium aliquam dolores provident eius explicabo impedit! Pariatur voluptates suscipit repudiandae?</p>
     </div>
     
-    {{-- Footer --}}
-    <div data-aos="fade-up">
+   
+    
+  </div>
+   {{-- Footer --}}
+  <div data-aos="fade-up" class="container-fluid">
 
-      @include('Layout.footer')
-    </div>
+    @include('Layout.footer')
   </div>
 </body>
 </html>
