@@ -287,7 +287,7 @@
                  <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="w-11/12 my-5 rounded-xl ml-5">
                </a>
                <a href="{{ route('article-details') }}">
-                <img src="/dist/img/article.jpg" alt="" class="w-11/12 rounded-xl ml-5">
+                <img src="{{ asset('/dist/img/article.jpg') }}" alt="" class="w-11/12 rounded-xl ml-5">
 
                </a>
             </div>
