@@ -22,12 +22,25 @@
 </div>
 
 <!-- Scripts below are for demo only -->
-<script type="text/javascript" src="/dist/js/main.min.js?v=1626274975328"></script>
+<script type="text/javascript" src="{{ asset('/dist/js/main.min.js?v=1626274975328') }}"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script type="text/javascript" src="/dist/js/chart.sample.min.js"></script>
+<script type="text/javascript" src="{{ asset('/dist/js/chart.sample.min.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+    AOS.init();
+</script>
+<script src="{{ asset('path-to-the-file/splide.min.js') }}"></script>
+<script>
+    var navbar = document.getElementById('navbar');
+    document.onscroll = function() {
+        if (document.documentElement.scrollTop > 0) {
+            navbar.classList.add('shadow-lg','bg-gray-700','top-3','text-gray-100')
+        } else {
+            navbar.classList.remove('shadow-lg','bg-gray-700','text-gray-100')
+        }
+    }
+</script>
 
 
-
-<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
-<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
