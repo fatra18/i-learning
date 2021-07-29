@@ -11,7 +11,7 @@
 <body class="bg-gray-900 overflow-auto">
    <div class="container mx-auto">
      <div class="mt-6" >
-         <img class="absolute inset-x-0 bottom-0 h-full w-full bg-cover bg-center"src="/dist/img/benner-1.jpg" alt="">
+         <img class="absolute inset-x-0 bottom-0 h-full w-full bg-cover bg-center"src="/dist/img/jumbotron.jpg" alt="">
          <div class="absolute inset-0 h-full w-full bo bg-gray-700 bg-opacity-40"></div>
      </div>  
      
