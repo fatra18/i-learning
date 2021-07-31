@@ -244,9 +244,13 @@ Route::prefix('/')->group(function () {
      
     Route::get('setting', function () {
         return view('Users.setting');
-    });
+    })->name('setting');
     
     Route::get('/details-course', function () {
         return view('Users.details-course');
     })->name('course-details');
 });
+Auth::routes();
+
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home')->middleware('is_admin');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

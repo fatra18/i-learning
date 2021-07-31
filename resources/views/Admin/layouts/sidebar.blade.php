@@ -92,18 +92,20 @@
     </ul>
     
     {{-- Sidebar Logout --}}
-    <ul class="menu-list mt-5">
-      <li class="">
-        <a href="index.html">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <ul class="menu-list mt-5 ">
+      <li class="bg-red-900 ">
+        <a class="dropdown-item " href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>          
           <span class="menu-item-label ml-4">Logout</span>
         </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
       </li>
     </ul>
-   
- 
-  
   </div>
 </aside>
