@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -222,7 +224,7 @@ Route::prefix('/')->group(function () {
         return view('Users.home');
     })->name('home');;
     
-    Route::get('login', function () {
+    Route::get('user/login', function () {
         return view('Users.login');
     })->name('login');
      
@@ -250,11 +252,16 @@ Route::prefix('/')->group(function () {
         return view('Users.details-course');
     })->name('course-details');
 });
-Auth::routes();
+
 
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home')->middleware('is_admin');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Auth
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('login',[AuthController::class,'login'])->name('login');
+Route::post('login-process',[AuthController::class,'loginProcess'])->name('login-process');
+Route::post('logout',[AuthController::class,'logout'])->name('logout');

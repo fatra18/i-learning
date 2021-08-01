@@ -24,7 +24,7 @@
     <div>
         
     </div>
-    <div class="bg-gray-100 rounded-xl w-11/12 mx-auto flex justify-center  mb-10 mt-10">
+    <div class="bg-gray-100 rounded-xl w-11/12 h-full mx-auto flex justify-center  mb-10 mt-10">
 
    
         <div id="app" class="flex justify-center mx-auto  ">

@@ -18,16 +18,24 @@ class CreateUserSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin123@admin.com',
-                'is_admin' => '1',
+                'role'  => 'Admin',
+                'password' => bcrypt('1234567'),
+            ],
+            [
+                'name' => 'Teacher',
+                'email' => 'Teacher123@Teacher.com',
+                'role' => 'Teacher',
                 'password' => bcrypt('1234567'),
             ],
             [
                 'name' => 'User',
                 'email' => 'User123@User.com',
-                'is_admin' => '0',
+                'role' => 'Student',
                 'password' => bcrypt('1234567'),
             ],
         ];
+
+        User::truncate();
 
         foreach ($user as $key => $value){
             User::create($value);
