@@ -64,7 +64,6 @@
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
-            <th>Chapters</th>
             <th>Created</th>
             <th>Action</th>
           </tr>

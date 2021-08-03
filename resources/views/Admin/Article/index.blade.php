@@ -1,43 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" class="">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
-
-  <!-- Tailwind is included -->
-  @include('Admin.layouts.style')
-  <meta name="theme-color" content="#ffffff"/>
-</head>
-<body>
-
-<div id="app">
-  
-  {{-- Sidebar --}}
-  @include('Admin.layouts.sidebar')
-  
-  {{-- Header Tag --}}
-  <section class="is-title-bar">
-    <div class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <ul>
-            <li>Article Page</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+@extends('Admin.layouts.app')
+@section('main_title','Article Page')
+@section('title','Category')
+@section('content')
 
   {{-- Create --}}
   <div class="ml-7 mt-5">
     <div class="text-center py-1 bg-gray-700 text-gray-100 shadow-xl w-32 rounded-md">
-      <a href="{{ route('article/create') }}">Create</a>
+      <a href="{{ route('articles.create') }}">Create</a>
     </div>
-   </div>
+  </div>
 
-  {{-- Main Content --}}
+  
+   {{-- Main Content --}}
   <section class="section main-section">
     <div class="card has-table">
       <header class="card-header">
@@ -68,22 +42,21 @@
           </tr>
           </thead>
           <tbody>
+            @foreach ($articles as $item)
             <tr>
-              <td data-label="Id">000</td>
-              <td data-label="Title">Programming</td>
-              <td data-label="Users_id">Fatra Dinata</td>
-              <td data-label="Category_id">Programming</td>
-              <td data-label="Content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </td>
+              <td data-label="Id">{{ $item->id }}</td>
+              <td data-label="Id">{{ $item->title }}</td>
+              <td data-label="Users_id">{{ $item->user->name }}</td>
+              <td data-label="Category">{{ $item->category->name }}</td>
+              <td data-label="Content">{!! str_word_count($item->content) > 5 ? substr($item->content, 0, 50) . ' ...' : $item->content !!}</td>             
               <td class="image-cell">
                 <div class="image">
-                  <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
+                  <img src="/profile/{{ $item->image }}" class="w-40">
                 </div>
               </td>
               <td class="actions-cell">
                 <div class="buttons ">
-                  <a  href="{{ route('article/edit') }}" class="button small green --jb-modal" type="button">
+                  <a  href="{{ route('articles.edit',$item->id) }}" class="button small green --jb-modal" type="button">
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -91,7 +64,7 @@
                       </svg>
                     </span>
                   </a>
-                  <a  href="{{ route('article/detail') }}" class="button small green --jb-modal" type="button">
+                  <a  href="{{ route('articles.show',$item->id) }}" class="button small green --jb-modal" type="button">
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -99,54 +72,25 @@
                       </svg>
                     </span>
                   </a>
-                  <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                  </button>
+                  <form action="{{ route('articles.delete',$item->id) }}"method="POST">
+                    @csrf
+                    <button class="button small red --jb-modal" data-target="sample-modal" type="submit">
+                      <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                    </button>
+                    @method('DELETE')
+                  </form>
                 </div>
               </td>
             </tr>        
+              
+            @endforeach
           </tbody>
         </table>
       </div>
     </div>
   </section>
   
-  {{-- Footer --}}
-  @include('Admin.layouts.footer')
+@endsection
 
-  {{-- Modal --}}
-  <div id="sample-modal" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button red --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
-  <div id="sample-modal-2" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button blue --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+ 
+

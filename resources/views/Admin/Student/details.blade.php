@@ -39,21 +39,21 @@
         <div class="flex space-x-4 ml-1">
           <h1>Id</h1>
           <span class="absolute left-40">:</span>
-          <p class="absolute left-96">000</p>
+          <p class="absolute left-96">{{ $students->id }}</p>
         </div>
       </div>
       <div class="relative top-14">
         <div class="flex space-x-4 ml-1">
           <h1>Name</h1>
           <span class="absolute left-40">:</span>
-          <p class="absolute left-96">Fatra Dinata</p>
+          <p class="absolute left-96">{{ $students->name }}</p>
         </div>
       </div>
       <div class="relative top-24">
         <div class="flex space-x-4 ml-1">
           <h1>Email</h1>
           <span class="absolute left-40">:</span>
-          <p class="absolute left-96">fatra88876@gmail.com</p>
+          <p class="absolute left-96">{{ $students->email }}</p>
         </div>
       </div>
       
@@ -61,7 +61,7 @@
         <div class="flex space-x-4 ml-1">
           <h1>Password</h1>
           <span class="absolute left-40">:</span>
-          <p class="absolute left-96">12345678</p>
+          <p class="absolute left-96">{{ $students->password }}</p>
         </div>
       </div>
         
@@ -69,7 +69,7 @@
         <div class="flex space-x-4 ml-1">
           <h1>Photos</h1>
           <span class="absolute left-40">:</span>
-          <img src="/dist/img/org.jpg" alt="" class="w-20 rounded-md absolute left-96"> 
+          <img src="/profile/{{ $students->image }}" alt="" class="w-20 rounded-md absolute left-96"> 
         </div>
       </div>
 
@@ -78,7 +78,7 @@
           <h1>Address</h1>
           <span class="absolute left-40">:</span>
           <p class="absolute left-96">
-            Yogyakarta Indonesia 
+            {{ $students->address }}
           </p>
         </div>
       </div>
@@ -88,7 +88,47 @@
           <h1>phone_number</h1>
           <span class="absolute left-40">:</span>
           <p class="absolute left-96">
-            087723451865 
+            {{ $students->phone_number }}
+          </p>
+        </div>
+      </div>
+      
+      <div class="relative top-96">
+        <div class="flex space-x-4 ml-1 mt-16">
+          <h1>Title</h1>
+          <span class="absolute left-40">:</span>
+          <p class="absolute left-96">
+            {{ $students->title }}
+          </p>
+        </div>
+      </div>
+      
+      <div class="relative top-96">
+        <div class="flex space-x-4 ml-1 mt-16">
+          <h1>Achievement</h1>
+          <span class="absolute left-40">:</span>
+          <p class="absolute left-96">
+            {{ $students->achievement }}
+          </p>
+        </div>
+      </div>
+
+      <div class="relative top-96">
+        <div class="flex space-x-4 ml-1 mt-16">
+          <h1>Courses_id</h1>
+          <span class="absolute left-40">:</span>
+          <p class="absolute left-96">
+            {{ $students->achievement }}
+          </p>
+        </div>
+      </div>
+
+      <div class="relative top-96">
+        <div class="flex space-x-4 ml-1 mt-16">
+          <h1>Chapters_id</h1>
+          <span class="absolute left-40">:</span>
+          <p class="absolute left-96">
+            {{ $students->achievement }}
           </p>
         </div>
       </div>
@@ -99,6 +139,7 @@
      
    
   </section>
+
 
   {{-- Footer --}}
   <div class="relative top-96 ">

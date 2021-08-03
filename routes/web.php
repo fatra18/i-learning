@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+use App\Models\Article;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,68 +64,40 @@ Route::prefix('/admin')->group(function(){
     })->name('video/edit');;
 
     // Category Url
-    Route::get('/category/index',function(){
-        return view('Admin.Category.index');
-    })->name('category');
-    
-    Route::get('/category/create',function(){
-        return view('Admin.Category.create');
-    })->name('category/create');
-    
-    Route::get('/category/edit',function(){
-        return view('Admin.Category.edit');
-    })->name('category/edit');;
-    
+    Route::get('/category/index',[CategoryController::class,'index'])->name('category');
+    Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('/category/create',[CategoryController::class,'store'])->name('category.store');
+    Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::put('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
+    Route::delete('/category/delete/{id}',[CategoryController::class,'destroy'])->name('category.delete');
+
     // Teacher Url
-    Route::get('/teacher',function(){
-        return view('Admin.Teacher.index');
-    })->name('teacher');;
-    
-    Route::get('/teacher/create',function(){
-        return view('Admin.Teacher.create');
-    })->name('teacher/create');
-    
-    Route::get('/teacher/edit',function(){
-        return view('Admin.Teacher.edit');
-    })->name('teacher/edit');
-    
-    Route::get('/teacher/details',function(){
-        return view('Admin.Teacher.details');
-    })->name('teacher/detail');;
+    Route::get('/teacher',[UserController::class,'showTeacher'])->name('teacher.index');
+    Route::get('/teacher/create',[UserController::class,'Teachercreate'])->name('teacher.create');
+    Route::post('/teacher/create',[UserController::class,'Teacherstore'])->name('teacher.store');
+    Route::get('/teacher/edit/{id}',[UserController::class,'Teacheredit'])->name('teacher.edit');
+    Route::put('/teacher/edit/{id}',[UserController::class,'Teacherupdate'])->name('teacher.update');
+    Route::delete('/teacher/delete/{id}',[UserController::class,'Teacherdestroy'])->name('teacher.delete');
+    Route::get('/teacher/show/{id}',[UserController::class,'Teachershow'])->name('teacher.detail');
     
     // Student Url
-    Route::get('/student',function(){
-        return view('Admin.Student.index');
-    })->name('student');
-    
-    Route::get('/student/create',function(){
-        return view('Admin.Student.create');
-    })->name('student/create');
-    
-    Route::get('/student/edit',function(){
-        return view('Admin.Student.edit');
-    })->name('student/edit');
-    
-    Route::get('/student/details',function(){
-        return view('Admin.Student.details');
-    })->name('student/detail');
-    
+    Route::get('/student',[UserController::class,'showStudent'])->name('student.index');
+    Route::get('/student/create',[UserController::class,'Studentcreate'])->name('student.create');
+    Route::post('/student/create',[UserController::class,'Studentstore'])->name('student.store');
+    // Route::get('/student/edit/{id}',[UserController::class,'Studentedit'])->name('student.edit');
+    Route::put('/student/edit/{id}',[UserController::class,'Studentupdate'])->name('student.update');
+    Route::delete('/student/delete/{id}',[UserController::class,'Studentdestroy'])->name('student.delete');
+    Route::get('/student/show/{id}',[UserController::class,'Studentshow'])->name('student.detail');
+
     // Article Url
-    Route::get('/article',function(){
-        return view('Admin.Article.index');
-    })->name('article');
-    
-    Route::get('/article/create',function(){
-        return view('Admin.Article.create');
-    })->name('article/create');
-    
-    Route::get('/article/edit',function(){
-        return view('Admin.Article.edit');
-    })->name('article/edit');;
-    
-    Route::get('/article/detail',function(){
-        return view('Admin.Article.detail');
-    })->name('article/detail');;
+    Route::get('/article',[ArticleController::class,'index'])->name('articles');
+    Route::get('/articles/create',[ArticleController::class,'create'])->name('articles.create');
+    Route::post('/articles/store',[ArticleController::class,'store'])->name('articles.store');
+    Route::get('/articles/show/{id}',[ArticleController::class,'show'])->name('articles.show');
+    Route::get('/articles/edit/{id}',[ArticleController::class,'edit'])->name('articles.edit');
+    Route::put('/articles/update/{id}',[ArticleController::class,'update'])->name('articles.update');
+    Route::delete('/articles/delete/{id}',[ArticleController::class,'destroy'])->name('articles.delete');
+
     
     // Preview Url
     Route::get('/preview',function(){

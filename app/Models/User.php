@@ -21,6 +21,11 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'image',
+        'address',
+        'phone_number',
+        'title',
+        'achievement',
     ];
 
     /**
@@ -41,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
