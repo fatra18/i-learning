@@ -33,38 +33,27 @@
   </section>
 
   {{-- Main Content --}}
-  <section class="section main-section">
-    <div class="border-2 border-gray-600 grid grid-cols-10 ">
-      <div class="mt-8 ml-10 flex items-center col-span-10 gap-28">
-        <h1 class="text-gray-900 text-xl font-bold">id</h1>
-        <p class="text-gray-900 font-bold">:</p>  
-        <p class="text-gray-700 ">1</p>
-      </div>
-      <div class="mt-8 ml-10 flex items-center col-span-10 gap-20">
-        <h1 class="text-gray-900 text-xl font-bold">Name</h1>
-        <p class="text-gray-900 font-bold">:</p>  
-        <p class="text-gray-700 ">Slacing Design Dashboard</p>
-      </div>
-      <div class="mt-8 ml-10 flex items-center col-span-10 gap-10">
-        <h1 class="text-gray-900 text-xl font-bold">Courses_name</h1>
-        <p class="text-gray-900 font-bold">:</p>  
-        <p class="text-gray-700 ">Programmer</p>
-      </div>
-      <div class="mt-8 ml-10 flex items-center col-span-10 gap-20">
-        <h1 class="text-gray-900 text-xl font-bold">create_at</h1>
-        <p class="text-gray-900 font-bold">:</p>  
-        <p class="text-gray-700 ">17-05-2021</p>
-      </div>
-      <div class="mt-8 ml-10 flex items-center col-span-10 gap-14 mb-10">
-        <h1 class="text-gray-900 text-xl font-bold">description</h1>
-        <p class="text-gray-900 font-bold">:</p>  
-        <p class="text-gray-700 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Earum repudiandae consequuntur nostrum, numquam aspernatur
-                                    quas sit incidunt esse iusto nam non aut quis pariatur expedita
-                                    ipsum eos, adipisci nihil reprehenderit?
-                                  </p>
-      </div>
+  <section class="section main-section flex">
+    <div class="">
+      @foreach ($video as $item )
+      <div class="" data-aos="fade-down">
+        <iframe width="715" height="402" class="mt-0 mb-5 " src="{{ $item->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
      
+        </iframe>
+      </div>
+      @endforeach
+      <div>
+        <h1 class="font-bold mb-5 text-lg">Description</h1>
+        <p>{{ $data->description }}</p>
+      </div>
+      <div>
+        {{-- <p>{{ $data->video->title }}</p> --}}
+      </div>
+     </div>
+     
+    </div>
+    <div>
+    
     </div>
   </section>
 

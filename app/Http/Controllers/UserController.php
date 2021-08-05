@@ -19,16 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $role = Auth::user()->role;
-        
-        if($role == 'Teacher'){
-            return view('Admin.Teacher.index',compact('role'));
-
-        }
-        if($role == 'Student'){
-            return view('Admin.Student.index',compact('role'));
-
-        }
+        $data = User::all();
+        return view('Users.setting',compact('data'));
         
 
         
@@ -58,7 +50,7 @@ class UserController extends Controller
     
     public function Studentcreate()
     {
-        return view('Admin.Student.create');
+        return view('Users.setting');
     }
 
     /**
@@ -103,7 +95,7 @@ class UserController extends Controller
         'role' => $request->role,
         ]);
        
-        return redirect()->route('student.index');
+        return redirect()->route('');
     }
     
 
@@ -137,10 +129,11 @@ class UserController extends Controller
         $teachers = User::findOrFail($id);
         return view('Admin.Teacher.edit',compact('teachers'));
     }
-    public function Studentedit($id)
+    public function Studentedit()
     {
-        $students = User::find($id);
-        return view('Users.setting',compact('students'));
+        $student = User::find(auth()->user()->id);
+        // dd($student->toArray());
+        return view('Users.setting',compact('student'));
     }
 
     /**

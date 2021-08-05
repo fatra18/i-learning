@@ -5,8 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChaptersController;
+use App\Http\Controllers\VideoController;
 use App\Models\Article;
+use App\Models\Courses;
 use App\Models\User;
 
 /*
@@ -26,13 +30,13 @@ Route::prefix('/admin')->group(function(){
     })->name('dashboard');
     
     // Course Url
-    Route::get('/courses', function () {
-        return view('Admin.Course.index');
-    })->name('courses');
+    // Route::get('/courses', function () {
+    //     return view('Admin.Course.index');
+    // })->name('courses');
     
-    Route::get('/courses/create', function () {
-        return view('Admin.Course.create');
-    })->name('courses/create');
+    // Route::get('/courses/create', function () {
+    //     return view('Admin.Course.create');
+    // })->name('courses/create');
     
     Route::get('/courses/edit', function () {
         return view('Admin.Course.edit');
@@ -82,12 +86,18 @@ Route::prefix('/admin')->group(function(){
     
     // Student Url
     Route::get('/student',[UserController::class,'showStudent'])->name('student.index');
-    Route::get('/student/create',[UserController::class,'Studentcreate'])->name('student.create');
-    Route::post('/student/create',[UserController::class,'Studentstore'])->name('student.store');
+    // Route::get('/student/create',[UserController::class,'Studentcreate'])->name('student.create');
+    // Route::post('/student/create',[UserController::class,'Studentstore'])->name('student.store');
     // Route::get('/student/edit/{id}',[UserController::class,'Studentedit'])->name('student.edit');
-    Route::put('/student/edit/{id}',[UserController::class,'Studentupdate'])->name('student.update');
-    Route::delete('/student/delete/{id}',[UserController::class,'Studentdestroy'])->name('student.delete');
-    Route::get('/student/show/{id}',[UserController::class,'Studentshow'])->name('student.detail');
+    // Route::put('/student/edit/{id}',[UserController::class,'Studentupdate'])->name('student.update');
+    // Route::delete('/student/delete/{id}',[UserController::class,'Studentdestroy'])->name('student.delete');
+    // Route::get('/student/show/{id}',[UserController::class,'Studentshow'])->name('student.detail');
+    Route::get('setting',[UserController::class,'index'])->name('setting');
+    Route::get('setting/edit',[UserController::class,'Studentedit'])->name('setting.edit');
+    Route::get('setting/create',[UserController::class,'Studentcreate'])->name('setting.create');
+    Route::post('setting/create',[UserController::class,'Studentstore'])->name('setting.store');
+
+    
 
     // Article Url
     Route::get('/article',[ArticleController::class,'index'])->name('articles');
@@ -98,6 +108,28 @@ Route::prefix('/admin')->group(function(){
     Route::put('/articles/update/{id}',[ArticleController::class,'update'])->name('articles.update');
     Route::delete('/articles/delete/{id}',[ArticleController::class,'destroy'])->name('articles.delete');
 
+    
+    // Courses
+    Route::get('courses',[CoursesController::class,'index'])->name('courses');
+    Route::get('/courses/create',[CoursesController::class,'create'])->name('courses.create');
+    Route::post('/courses/create',[CoursesController::class,'store'])->name('courses.store');
+    Route::get('/courses/edit/{id}',[CoursesController::class,'edit'])->name('courses.edit');
+    Route::put('/courses/update/{id}',[CoursesController::class,'update'])->name('courses.update');
+    Route::delete('/courses/delete/{id}',[CoursesController::class,'destroy'])->name('courses.delete');
+
+    // Chapters
+    Route::get('chapters',[ChaptersController::class,'index'])->name('chapters');
+    Route::get('/chapters/create',[ChaptersController::class,'create'])->name('chapter.create');
+    Route::post('/chapters/create',[ChaptersController::class,'store'])->name('chapter.store');
+    Route::get('/chapters/edit/{id}',[ChaptersController::class,'edit'])->name('chapter.edit');
+    Route::get('/chapters/show/{id}',[ChaptersController::class,'show'])->name('chapter.detail');
+
+    Route::put('/chapters/update/{id}',[ChaptersController::class,'update'])->name('chapter.update');
+    Route::delete('/chapters/delete/{id}',[CoursesController::class,'destroy'])->name('chapter.delete');
+
+    // Video
+    Route::get('/video/create',[VideoController::class,'create'])->name('video.create');
+    Route::post('/video/create',[VideoController::class,'store'])->name('video.store');
     
     // Preview Url
     Route::get('/preview',function(){
@@ -113,15 +145,15 @@ Route::prefix('/teacher')->group(function(){
     });
     
     // Course Url
-    Route::get('/courses', function () {
-        return view('Teacher.Course.index');
-    });
-    Route::get('/courses/create', function () {
-        return view('Teacher.Course.create');
-    });
-    Route::get('/courses/edit', function () {
-        return view('Teacher.Course.create');
-    });
+    // Route::get('/courses', function () {
+    //     return view('Teacher.Course.index');
+    // });
+    // Route::get('/courses/create', function () {
+    //     return view('Teacher.Course.create');
+    // });
+    // Route::get('/courses/edit', function () {
+    //     return view('Teacher.Course.create');
+    // });
     
     // Chapter Url
     Route::get('/chapters', function () {
@@ -221,9 +253,10 @@ Route::prefix('/')->group(function () {
         return view('Users.teachers');
     })->name('teacher-details');
      
-    Route::get('setting', function () {
-        return view('Users.setting');
-    })->name('setting');
+    // Route::get('setting', function () {
+    //     return view('Users.setting');
+    // })->name('setting');
+   
     
     Route::get('/details-course', function () {
         return view('Users.details-course');

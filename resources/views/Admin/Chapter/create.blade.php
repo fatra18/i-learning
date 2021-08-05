@@ -33,31 +33,45 @@
 
   {{-- Main Contents --}}
   <section class="section main-section ">
-    <div>
+    <form class="form form-horizontal" method="POST" action="{{ route('chapter.store') }}" enctype="multipart/form-data">
+      @csrf
+      @method('POST')
       <div>
-        <input type="text" name="name" placeholder="name" class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100">
-      </div>
-      <div class="mt-10">
-        <textarea 
-          name="" 
-          placeholder="description"
-          class="w-3/6 outline-none px-4 border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
+        <div>
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="name"
+            value="{{ old('name') }}"
+            class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100"
+            >
+        </div>
+        <div class="mt-10">
+          <textarea 
+            name="description"
+            value="{{ old('description') }}" 
+            placeholder="description"
+            class="w-3/6 outline-none px-4 border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
 
-        </textarea>
-      </div>
-      <div class="my-10 ">
-        <select name="" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
-          <option value="">Programmer</option>
-          <option value="">Design</option>
-        </select>
-      </div>
+          </textarea>
+        </div>
+        <div class="my-10 ">
+          <select name="course_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
+            @foreach ( $courses as $course )
+              <option value="{{ $course->id}}">{{ $course->name }}</option>
+              @endforeach
+          </select>
+        </div>
 
-      <div>
-        <a href="" class="py-1 px-10 bg-gray-600 text-gray-100 rounded-md shadow-lg">create</a>
-      </div>
+        <div class="flex ml-6 mt-5">
+          <button type="submit" class="bg-gray-900 text-gray-100 font-bold px-7 py-1 rounded-md shadow-xl">
+            submit
+          </button>
+        </div>
 
-     
-    </div>
+      
+      </div>
+    </form>  
   </section>
 
   {{-- Footer --}}

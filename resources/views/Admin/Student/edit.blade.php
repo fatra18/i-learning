@@ -44,7 +44,7 @@
           </ul>
       </div>
       @endif
-      <form class="form form-horizontal" method="POST" action="{{ route('student.update',$students->id) }}" enctype="multipart/form-data">
+      {{-- <form class="form form-horizontal" method="POST" action="{{ route('student.update',$students->id) }}" enctype="multipart/form-data"> --}}
         @csrf
         @method('PUT')
         

@@ -33,39 +33,58 @@
 
   {{-- Main Content --}}
   <section class="section main-section">
-    <div>
+    <form class="form form-horizontal" method="POST" action="{{ route('courses.store') }}" enctype="multipart/form-data">
+      @csrf
+      @method('POST')
       <div>
-        <input type="text" name="name" placeholder="name" class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100">
-      </div>
-      <div class="mt-10">
-        <select name="" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
-          <option value="">Programmer</option>
-          <option value="">Design</option>
-        </select>
-      </div>
-      <div class="mt-10">
-        <textarea 
-          name=""
-          placeholder="description" 
-          class="w-3/6 outline-none px-4 border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
+        <div>
+          <input 
+              type="text" 
+              name="name"
+              placeholder="name" 
+              class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100"
+              value="{{ old('name') }}">
+        </div>
+        <div class="mt-10">
+          <select name="user_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
+            @foreach ( $users as $user )
+            <option value="{{ $user->id}}">{{ $user->name }}</option>
+            @endforeach
+          </select>
+        </div>
 
-        </textarea>
-      </div>
+        <div class="mt-10">
+          <select name="category_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
+            @foreach ( $categories as $category )
+            <option value="{{ $category->id}}">{{ $category->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="mt-10">
+          <textarea 
+            name="description"
+            value="{{ old('description') }}"
+            placeholder="description" 
+            class="w-3/6 outline-none px-4 border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
 
-      <div class="mt-10">
-        <input type="file" name="" id="" placeholder="image" class="w-3/6 py-2 px-3 bg-white border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
-      </div>
-    </div>
-  </section>
+          </textarea>
+        </div>
 
-  
-   {{-- Submit --}}
-   <div class="flex ml-6 mt-5">
-    <button type="submit" class="bg-gray-900 text-gray-100 font-bold px-7 py-1 rounded-md shadow-xl">
-      submit
-    </button>
-   </div>
-  
+        <div class="mt-10">
+          <div class="mt-10">
+            <input type="file" class="form-control" id="basicInput" name="image_file" name="image"  value="{{ old('image') }}"
+            placeholder="Image">      
+          </div>        
+      </div>
+      {{-- Submit --}}
+      <div class="flex ml-6 mt-5">
+        <button type="submit" class="bg-gray-900 text-gray-100 font-bold px-7 py-1 rounded-md shadow-xl">
+          submit
+        </button>
+      </div>
+    </form>
+    
+</section>  
   {{-- Footer --}}
   @include('Admin.layouts.footer')
 

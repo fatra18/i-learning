@@ -34,7 +34,7 @@
   {{-- Create --}}
   <div class="ml-7 mt-5">
     <div class="text-center py-1 bg-gray-700 text-gray-100 shadow-xl w-32 rounded-md">
-      <a href="{{ route('courses/create') }}">Create</a>
+      <a href="{{ route('courses.create') }}">Create</a>
     </div>
   </div>
 
@@ -60,31 +60,29 @@
         <table>
           <thead>
           <tr>
-            <th></th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Created</th>
+            <th>User_name</th>
+            <th>Category_name</th>
+            <th>Description</th>
+            <th>Image</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
+          @foreach ($courses as $course )
           <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
+            
+            <td data-label="Name">{{ $course->name }}</td>
+            <td data-label="User_id">{{ $course->user->name }}</td>
+            <td data-label="Category">{{ $course->category->name }}</td>
+            <td data-label="Chapters">{{ $course->description }}</td>
+            <td data-label="Image">
+              <img src="/profile/{{ $course->image }}" class="w-40">
             </td>
-            <td data-label="Name">Rebecca Bauch</td>
-            <td data-label="Email">Rebecca@gmail.com</td>
-            <td data-label="Address">Jln ngemplak Sleman Yogyakarta Indonesia</td>
-            <td data-label="Chapters">06</td>
-            <td data-label="Created">
-              <small class="text-gray-500" title="Oct 25, 2021">Oct 25, 2021</small>
-            </td>
+           
             <td class="actions-cell">
               <div class="buttons right nowrap">
-                <a  href="{{ route('courses/edit') }}" class="button small green --jb-modal" type="button">
+                <a  href="{{ route('courses.edit',$course->id) }}" class="button small green --jb-modal" type="button">
                   <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -92,33 +90,30 @@
                     </svg>
                   </span>
                 </a>
-                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                  <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                </button>
+                <a  href="{{ route('chapters') }}" class="button small green --jb-modal" type="button">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                </a>
+                <form action="{{ route('courses.delete',$course->id) }}"method="POST">
+                  @csrf
+                  <button class="button small red --jb-modal" data-target="sample-modal" type="submit">
+                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                  </button>
+                  @method('DELETE')
+                </form>
+               
               </div>
             </td>
           </tr>
+          @endforeach
         
           </tbody>
         </table>
-        <div class="table-pagination">
-          <div class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <div class="buttons">
-                  <button type="button" class="button active">1</button>
-                  <button type="button" class="button">2</button>
-                  <button type="button" class="button">3</button>
-                </div>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-                <small>Page 1 of 3</small>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -126,41 +121,6 @@
   {{-- Fpoter --}}
   @include('Admin.layouts.footer')
 
-  {{-- Details --}}
-  <div id="sample-modal" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button red --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
-
-  {{-- Delete --}}
-  <div id="sample-modal-2" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button blue --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
 
 </div>
 
