@@ -35,11 +35,10 @@
   {{-- Main Content --}}
   <section class="section main-section flex">
     <div class="">
-      @foreach ($video as $item )
+      @foreach ($data->video as $item )
       <div class="" data-aos="fade-down">
-        <iframe width="715" height="402" class="mt-0 mb-5 " src="{{ $item->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-     
-        </iframe>
+        <p>{{ $item->title }}</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $item->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       @endforeach
       <div>

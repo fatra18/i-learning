@@ -67,16 +67,16 @@
           </tr>
           </thead>
           <tbody>
-         @foreach ($chapters as $chapter)
+         @foreach ($chapters as $item)
          <tr>
            
-          <td data-label="Name">{{ $chapter->name }}</td>
-          <td data-label="Email">{{ $chapter->course->id }}</td>
-          <td data-label="Email">{{ $chapter->description }}</td>
+          <td data-label="Name">{{ $item->name }}</td>
+          <td data-label="Email">{{ $item->course->name }}</td>
+          <td data-label="Email">{{ $item->description }}</td>
           <td data-label="Action">
             
             <div class="buttons ">
-              <a  href="{{ route('chapter.edit',$chapter->id) }}" class="button small green --jb-modal" type="button">
+              <a  href="{{ route('chapter.edit',$item->id) }}" class="button small green --jb-modal" type="button">
                 <span class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -84,7 +84,7 @@
                   </svg>
                 </span>
               </a>
-              <a  href="{{ route('chapter.detail',$chapter->id) }}" class="button small green --jb-modal" type="button">
+              <a  href="{{ route('chapter.detail',$item->id) }}" class="button small green --jb-modal" type="button">
                 <span class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -100,7 +100,7 @@
                 </span>
               </a>
              
-              <form action="{{ route('chapter.delete',$chapter->id) }}"method="POST">
+              <form action="{{ route('chapter.delete',$item->id) }}"method="POST">
                 @csrf
                 <button class="button small red --jb-modal" data-target="sample-modal" type="submit">
                   <span class="icon"><i class="mdi mdi-trash-can"></i></span>

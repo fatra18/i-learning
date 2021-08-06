@@ -118,14 +118,14 @@ Route::prefix('/admin')->group(function(){
     Route::delete('/courses/delete/{id}',[CoursesController::class,'destroy'])->name('courses.delete');
 
     // Chapters
-    Route::get('chapters',[ChaptersController::class,'index'])->name('chapters');
+    Route::get('chapters/{id}',[ChaptersController::class,'index'])->name('chapters');
     Route::get('/chapters/create',[ChaptersController::class,'create'])->name('chapter.create');
     Route::post('/chapters/create',[ChaptersController::class,'store'])->name('chapter.store');
     Route::get('/chapters/edit/{id}',[ChaptersController::class,'edit'])->name('chapter.edit');
     Route::get('/chapters/show/{id}',[ChaptersController::class,'show'])->name('chapter.detail');
 
     Route::put('/chapters/update/{id}',[ChaptersController::class,'update'])->name('chapter.update');
-    Route::delete('/chapters/delete/{id}',[CoursesController::class,'destroy'])->name('chapter.delete');
+    Route::delete('/chapters/delete/{id}',[ChaptersController::class,'destroy'])->name('chapter.delete');
 
     // Video
     Route::get('/video/create',[VideoController::class,'create'])->name('video.create');

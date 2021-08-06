@@ -69,7 +69,9 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Courses::with('chapters')->first();
+        dd($data->toArray());
+        // return view('Admin.Chapter.index',compact('data'));
     }
 
     /**

@@ -90,7 +90,7 @@
                     </svg>
                   </span>
                 </a>
-                <a  href="{{ route('chapters') }}" class="button small green --jb-modal" type="button">
+                <a  href="{{ route('chapters',$course->id) }}" class="button small green --jb-modal" type="button">
                   <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />

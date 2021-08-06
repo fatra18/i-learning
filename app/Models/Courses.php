@@ -31,6 +31,8 @@ class Courses extends Model
     public function chapters()
     {
         // return $this->belongsTo(Category::class,'image','image_id');
-        return $this->hasMany(Chapters::class);
+        return $this->hasMany(Chapters::class, 'course_id', 'id');
     }
+
+
 }
