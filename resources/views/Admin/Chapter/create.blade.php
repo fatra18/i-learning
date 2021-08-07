@@ -56,12 +56,15 @@
           </textarea>
         </div>
         <div class="my-10 ">
-          <select name="course_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
-            @foreach ( $courses as $course )
-              <option value="{{ $course->id}}">{{ $course->name }}</option>
-              @endforeach
-          </select>
+          <input 
+          type="text"
+          disabled  
+          placeholder="name"
+          value="{{ $courses->name }}"
+          class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100"
+          >        
         </div>
+        <input type="hidden" value="{{ $courses->id }} " name="course_id">
 
         <div class="flex ml-6 mt-5">
           <button type="submit" class="bg-gray-900 text-gray-100 font-bold px-7 py-1 rounded-md shadow-xl">

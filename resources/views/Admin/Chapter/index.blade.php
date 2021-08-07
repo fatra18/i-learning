@@ -33,7 +33,7 @@
 
   <div class="ml-7 mt-5">
     <div class="text-center py-1 bg-gray-700 text-gray-100 shadow-xl w-32 rounded-md">
-      <a href="{{ route('chapter.create') }}">Create</a>
+      <a href="{{ route('chapter.create', $course_id) }}">Create</a>
     </div>
   </div>
 
@@ -84,7 +84,7 @@
                   </svg>
                 </span>
               </a>
-              <a  href="{{ route('chapter.detail',$item->id) }}" class="button small green --jb-modal" type="button">
+              <a  href="{{ route('chapter.detail',[$item->id,$item->id]) }}" class="button small green --jb-modal" type="button">
                 <span class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -92,7 +92,7 @@
                   </svg>
                 </span>
               </a>
-              <a  href="{{ route('video.create') }}" class="button small blue --jb-modal" type="button">
+              <a  href="{{ route('video.create',$item->id) }}" class="button small blue --jb-modal" type="button">
                 <span class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />

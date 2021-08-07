@@ -23,7 +23,7 @@
       <div class="level-left">
         <div class="level-item">
           <ul>
-            <li>Create Student</li>
+            <li>Edit Video</li>
           </ul>
         </div>
       </div>
@@ -44,16 +44,16 @@
           </ul>
       </div>
       @endif
-      <form class="form form-horizontal" method="POST" action="{{ route('video.store') }}" enctype="multipart/form-data">
+      <form class="form form-horizontal" method="POST" action="{{ route('video.update',$video->id) }}" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
 
     
         {{-- Email --}}
         <div class="mt-5 flex flex-col justify-center">
           <label class="mb-3 text-sm text-gray-900">Title</label>
           <input type="text" name="title"
-                value="{{ old('title')}}" 
+                value="{{ old('title',$video->title)}}" 
                 placeholder="title" 
                 class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100">
         </div>
@@ -62,18 +62,23 @@
         <div class="mt-5 flex flex-col justify-center">
           <label class="mb-3 text-sm text-gray-900">Video</label>
           <input type="text" name="video"
-                value="{{ old('video') }}"
+                value="{{ old('video',$video->video) }}"
                 placeholder="phone_number"
                 class="w-3/6 py-2 px-3 bg-white border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
         </div>
         
         {{-- Title --}}
        <div class="mt-5">
-        <select class=" block form-select py-4 px-3 w-3/5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100" name="chapters_id" type="text" value="{{ old('chapters_id') }}" >
-          @foreach ( $chapter as $item )
-          <option value="{{ $item->id}}">{{ $item->name }}</option>
-          @endforeach
-        </select>
+        <input 
+        type="text"
+        disabled 
+        name="chapters_id"
+        value="{{ old('chapters_id',$chapters->name) }}"
+        class="w-3/6 py-2 px-3 bg-white border-2  focus:ring-2 focus:ring-gray-100 shadow-sm"
+        >
+
+        
+        
        </div>
 
         

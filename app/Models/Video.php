@@ -14,8 +14,12 @@ class Video extends Model
         
     ];
 
-    public function chapter()
+    public function chapters()
     {
-        return $this->hasMany(Chapters::class);
+        return $this->hasMany(Chapters::class,'chapters_id', 'id');
+    }
+    public function course()
+    {
+        return $this->hasMany(Courses::class,'chapters_id', 'id');
     }
 }

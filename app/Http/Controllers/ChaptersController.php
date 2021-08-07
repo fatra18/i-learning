@@ -18,7 +18,9 @@ class ChaptersController extends Controller
     {
         $chapters = Chapters::with('course')->where('course_id', $id)->get();
         // dd($chapters->toArray());
-        return view('Admin.Chapter.index',compact('chapters'));
+        $chapter_id = $id;
+        $course_id = $id;
+        return view('Admin.Chapter.index',compact('chapters', 'course_id','chapter_id'));
 
 
     }
@@ -28,11 +30,10 @@ class ChaptersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $courses = Courses::all();
-        $chapters = Chapters::all();
-        return view('Admin.Chapter.create',compact('courses','chapters'));
+        $courses = Courses::findOrFail($id);
+        return view('Admin.Chapter.create',compact('courses'));
 
 
 
@@ -54,12 +55,12 @@ class ChaptersController extends Controller
         ]);
 
         Chapters::create(([
-        'id' =>request('id'),
+        'id' => request('id'),
         'name' => request('name'),
         'course_id' => request('course_id'),
         'description' => request('description'),
         ]));
-        return redirect()->route('chapters');
+        return redirect()->route('chapters',$request->course_id);
     }
 
     /**
@@ -70,7 +71,7 @@ class ChaptersController extends Controller
      */
     public function show($id)
     {
-        $data = Chapters::with('video')->first();
+        $data = Chapters::with('video')->findOrFail($id);
         // $video = Video::all();
         // dd($data->toArray());
         return view('Admin.Chapter.details',compact('data'));  

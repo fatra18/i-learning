@@ -119,18 +119,21 @@ Route::prefix('/admin')->group(function(){
 
     // Chapters
     Route::get('chapters/{id}',[ChaptersController::class,'index'])->name('chapters');
-    Route::get('/chapters/create',[ChaptersController::class,'create'])->name('chapter.create');
+    Route::get('/chapters/create/{id}',[ChaptersController::class,'create'])->name('chapter.create');
     Route::post('/chapters/create',[ChaptersController::class,'store'])->name('chapter.store');
     Route::get('/chapters/edit/{id}',[ChaptersController::class,'edit'])->name('chapter.edit');
-    Route::get('/chapters/show/{id}',[ChaptersController::class,'show'])->name('chapter.detail');
+    Route::get('/chapters/show/{id}/{chapters_id}',[ChaptersController::class,'show'])->name('chapter.detail');
 
     Route::put('/chapters/update/{id}',[ChaptersController::class,'update'])->name('chapter.update');
     Route::delete('/chapters/delete/{id}',[ChaptersController::class,'destroy'])->name('chapter.delete');
 
     // Video
-    Route::get('/video/create',[VideoController::class,'create'])->name('video.create');
+    Route::get('/video/create/{id}',[VideoController::class,'create'])->name('video.create');
     Route::post('/video/create',[VideoController::class,'store'])->name('video.store');
-    
+    Route::get('/video/edit/{id}/{chapters_id}',[VideoController::class,'edit'])->name('video.edit');
+    Route::put('/video/update/{id}',[VideoController::class,'update'])->name('video.update');
+    Route::delete('/video/delete/{id}',[VideoController::class,'destroy'])->name('video.delete');
+
     // Preview Url
     Route::get('/preview',function(){
         return view('Admin.Preview.index');
