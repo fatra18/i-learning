@@ -7,7 +7,7 @@
   <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-  @include('Admin.layouts.style')
+  @include('Teacher.layouts.style')
   <meta name="theme-color" content="#ffffff"/>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <div id="app">
 
   {{-- Sidebar --}}
-  @include('Admin.layouts.sidebar')
+  @include('Teacher.layouts.sidebar')
 
   {{-- Header --}}
   <section class="is-title-bar">

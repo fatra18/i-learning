@@ -25,10 +25,13 @@ class AuthController extends Controller
         {
             $role = Auth::user()->role;
             if($role == 'Admin'){
-                return redirect()->route('dashboard');
+                return redirect()->route('Admin-dashboard');
             }
-            if(in_array($role,['Teacher','Student'])){
-                return \redirect()->route('home');
+            if($role == 'Teacher'){
+                return redirect()->route('Teacher-dashboard');
+            }
+            if(in_array($role,['Student'])){
+                return redirect()->route('home');
             }
         }else{
             return redirect()->route('login')->with('error','Email dan Password salah');
@@ -53,4 +56,13 @@ class AuthController extends Controller
         
         
     }
+
+    // public function dashboard()
+    // {
+    //     if(Auth::check()){
+    //         return view('Admin.Dashboard');
+    //     }
+  
+    //     return redirect("login")->withSuccess('You are not allowed to access');
+    // }
 }

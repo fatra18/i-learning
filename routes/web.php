@@ -9,6 +9,7 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChaptersController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\DashboardController;
 use App\Models\Article;
 use App\Models\Courses;
 use App\Models\User;
@@ -25,48 +26,8 @@ use App\Models\User;
 */
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/', function () {
-        return view('Admin.Dashboard');
-    })->name('dashboard');
-    
-    // Course Url
-    // Route::get('/courses', function () {
-    //     return view('Admin.Course.index');
-    // })->name('courses');
-    
-    // Route::get('/courses/create', function () {
-    //     return view('Admin.Course.create');
-    // })->name('courses/create');
-    
-    Route::get('/courses/edit', function () {
-        return view('Admin.Course.edit');
-    })->name('courses/edit');;
-    
-    // Chapter Url
-    Route::get('/chapters', function () {
-        return view('Admin.Chapter.index');
-    })->name('chapters');;
-    
-    Route::get('/chapters/create', function () {
-        return view('Admin.Chapter.create');
-    })->name('chapters/create');
-    
-    Route::get('/chapters/edit', function () {
-        return view('Admin.Chapter.edit');
-    })->name('chapters/edit');;
-    
-    Route::get('/chapters/details', function () {
-        return view('Admin.Chapter.details');
-    })->name('chapters/details');;
-    
-    Route::get('/chapters/video/create', function () {
-        return view('Admin.Chapter.video-create');
-    })->name('video/create');;
-    
-    Route::get('/chapters/video/edit', function () {
-        return view('Admin.Chapter.video-edit');
-    })->name('video/edit');;
-
+    Route::get('/',[DashboardController::class,'Admin'])->name('Admin-dashboard');
+   
     // Category Url
     Route::get('/category/index',[CategoryController::class,'index'])->name('category');
     Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
@@ -142,89 +103,7 @@ Route::prefix('/admin')->group(function(){
 
 
 });
-Route::prefix('/teacher')->group(function(){
-    Route::get('/', function () {
-        return view('Teacher.Dashboard');
-    });
-    
-    // Course Url
-    // Route::get('/courses', function () {
-    //     return view('Teacher.Course.index');
-    // });
-    // Route::get('/courses/create', function () {
-    //     return view('Teacher.Course.create');
-    // });
-    // Route::get('/courses/edit', function () {
-    //     return view('Teacher.Course.create');
-    // });
-    
-    // Chapter Url
-    Route::get('/chapters', function () {
-        return view('Teacher.Chapter.index');
-    });
-    Route::get('/chapters/create', function () {
-        return view('Teacher.Chapter.create');
-    });
-    Route::get('/chapters/edit', function () {
-        return view('Teacher.Chapter.edit');
-    });
-    Route::get('/chapters/details', function () {
-        return view('Teacher.Chapter.details');
-    });
-    Route::get('/chapters/video/create', function () {
-        return view('Teacher.Chapter.video-create');
-    });
-    Route::get('/chapters/video/edit', function () {
-        return view('Teacher.Chapter.video-edit');
-    });
 
-    // Category Url
-    Route::get('/category/index',function(){
-        return view('Teacher.Category.index');
-    });
-    Route::get('/category/create',function(){
-        return view('Teacher.Category.create');
-    });
-    Route::get('/category/edit',function(){
-        return view('Teacher.Category.edit');
-    });
-    
-    // Student Url
-    Route::get('/student',function(){
-        return view('Teacher.Student.index');
-    });
-    Route::get('/student/create',function(){
-        return view('Teacher.Student.create');
-    });
-    Route::get('/student/edit',function(){
-        return view('Teacher.Student.edit');
-    });
-    Route::get('/student/details',function(){
-        return view('Teacher.Student.details');
-    });
-    
-    // Article Url
-    Route::get('/article',function(){
-        return view('Teacher.Article.index');
-    });
-    Route::get('/article/create',function(){
-        return view('Teacher.Article.create');
-    });
-    Route::get('/article/edit',function(){
-        return view('Teacher.Article.edit');
-    });
-    Route::get('/article/detail',function(){
-        return view('Teacher.Article.detail');
-    });
-    
-    // Preview Url
-    Route::get('/preview',function(){
-        return view('Teacher.Preview.index');
-    });
-
-
-
-});
 
 
 Route::get('/dashboard-teachers', function () {
@@ -235,6 +114,9 @@ Route::prefix('/')->group(function () {
     Route::get('/', function () {
         return view('Users.home');
     })->name('home');;
+    
+    // Route::get('courses',[CoursesController::class,'index1'])->name('courses');
+    // Route::get('/courses/create',[CoursesController::class,'create1'])->name('courses.create');
     
     Route::get('user/login', function () {
         return view('Users.login');
@@ -278,3 +160,42 @@ Auth::routes();
 Route::get('login',[AuthController::class,'login'])->name('login');
 Route::post('login-process',[AuthController::class,'loginProcess'])->name('login-process');
 Route::post('logout',[AuthController::class,'logout'])->name('logout');
+// Route::post('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+
+ // Course Url
+    // Route::get('/courses', function () {
+    //     return view('Admin.Course.index');
+    // })->name('courses');
+    
+    // Route::get('/courses/create', function () {
+    //     return view('Admin.Course.create');
+    // })->name('courses/create');
+    
+    // Route::get('/courses/edit', function () {
+    //     return view('Admin.Course.edit');
+    // })->name('courses/edit');;
+    
+    // // Chapter Url
+    // Route::get('/chapters', function () {
+    //     return view('Admin.Chapter.index');
+    // })->name('chapters');;
+    
+    // Route::get('/chapters/create', function () {
+    //     return view('Admin.Chapter.create');
+    // })->name('chapters/create');
+    
+    // Route::get('/chapters/edit', function () {
+    //     return view('Admin.Chapter.edit');
+    // })->name('chapters/edit');;
+    
+    // Route::get('/chapters/details', function () {
+    //     return view('Admin.Chapter.details');
+    // })->name('chapters/details');;
+    
+    // Route::get('/chapters/video/create', function () {
+    //     return view('Admin.Chapter.video-create');
+    // })->name('video/create');;
+    
+    // Route::get('/chapters/video/edit', function () {
+    //     return view('Admin.Chapter.video-edit');
+    // })->name('video/edit');;

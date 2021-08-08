@@ -15,7 +15,7 @@
 <div id="app">
 
   {{-- Sidebar --}}
-  @include('Teacher.layouts.sidebar')
+  @include('Admin.layouts.sidebar')
 
   {{-- Header --}}
   <section class="is-title-bar">

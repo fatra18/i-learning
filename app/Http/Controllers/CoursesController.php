@@ -6,6 +6,7 @@ use App\Models\Courses;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CoursesController extends Controller
 {
@@ -19,6 +20,8 @@ class CoursesController extends Controller
         $courses = Courses::with('user','category')->get();
         return view('Admin.Course.index',compact('courses'));
     }
+    
+   
 
     /**
      * Show the form for creating a new resource.
@@ -32,6 +35,13 @@ class CoursesController extends Controller
         $categories = Category::all();
         return view('Admin.Course.create',compact('courses','users','categories'));
     }
+    // public function create1()
+    // {
+    //     $courses = Courses::get();
+    //     $users = Auth::user()->role == 'Teacher';
+    //     $categories = Category::all();
+    //     return view('Teacher.Course.create',compact('courses','users','categories'));
+    // }
 
     /**
      * Store a newly created resource in storage.

@@ -16,7 +16,7 @@
                 Courses
               </h3>
               <h1 class="text-gray-900">
-                512
+                {{ $course }}
               </h1>
             </div>
           </div>
@@ -43,7 +43,7 @@
                 Teacher
               </h3>
               <h1 class="text-gray-900">
-                512
+                {{ $teacher }}
               </h1>
             </div>
           </div>
@@ -68,7 +68,7 @@
                 Users
               </h3>
               <h1 class="text-gray-900">
-                512
+                {{ $user }}
               </h1>
             </div>
           </div>
@@ -93,7 +93,7 @@
                 Category
               </h3>
               <h1 class="text-gray-900">
-                512
+                {{ $category }}
               </h1>
             </div>
           </div>

@@ -11,7 +11,7 @@
       <div class="level-left">
         <div class="level-item">
           <ul>
-            <li>Admin</li>
+            <li>{{ Auth::user()->name }}</li>
             <li>Dashboard</li>
           </ul>
         </div>
