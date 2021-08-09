@@ -7,7 +7,7 @@
   <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-  @include('Teacher.layouts.style')
+  @include('Admin.layouts.style')
   <meta name="theme-color" content="#ffffff"/>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <div id="app">
 
   {{-- Sidebar --}}
-  @include('Teacher.layouts.sidebar')
+  @include('Admin.layouts.sidebar')
 
   {{-- Header --}}
   <section class="is-title-bar">
@@ -34,7 +34,7 @@
   {{-- Create --}}
   <div class="ml-7 mt-5">
     <div class="text-center py-1 bg-gray-700 text-gray-100 shadow-xl w-32 rounded-md">
-      <a href="{{ route('courses.create') }}">Create</a>
+      <a href="{{ route('courses.create',Auth::user()->id) }}">Create</a>
     </div>
   </div>
 
@@ -82,7 +82,7 @@
            
             <td class="actions-cell">
               <div class="buttons right nowrap">
-                <a  href="{{ route('courses.edit',$course->id) }}" class="button small green --jb-modal" type="button">
+                <a  href="{{ route('courses.edit',[$course->id,$course->id]) }}" class="button small green --jb-modal" type="button">
                   <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />

@@ -17,10 +17,19 @@ class ChaptersController extends Controller
     public function index($id)
     {
         $chapters = Chapters::with('course')->where('course_id', $id)->get();
-        // dd($chapters->toArray());
         $chapter_id = $id;
         $course_id = $id;
         return view('Admin.Chapter.index',compact('chapters', 'course_id','chapter_id'));
+
+
+    }
+
+    public function Teacher($id)
+    {
+        $chapters = Chapters::with('course')->where('course_id', $id)->get();
+        $chapter_id = $id;
+        $course_id = $id;
+        return view('Teacher.Chapter.index',compact('chapters', 'course_id','chapter_id'));
 
 
     }
@@ -34,9 +43,12 @@ class ChaptersController extends Controller
     {
         $courses = Courses::findOrFail($id);
         return view('Admin.Chapter.create',compact('courses'));
-
-
-
+    }
+    
+    public function createT($id)
+    {
+        $courses = Courses::findOrFail($id);
+        return view('Teacher.Chapter.create',compact('courses'));
     }
 
     /**
@@ -62,6 +74,23 @@ class ChaptersController extends Controller
         ]));
         return redirect()->route('chapters',$request->course_id);
     }
+    public function storeT(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'course_id' => 'required',
+            'description' => 'required',
+
+        ]);
+
+        Chapters::create(([
+        'id' => request('id'),
+        'name' => request('name'),
+        'course_id' => request('course_id'),
+        'description' => request('description'),
+        ]));
+        return redirect()->route('teacher-chapters',$request->course_id);
+    }
 
     /**
      * Display the specified resource.
@@ -72,9 +101,13 @@ class ChaptersController extends Controller
     public function show($id)
     {
         $data = Chapters::with('video')->findOrFail($id);
-        // $video = Video::all();
-        // dd($data->toArray());
         return view('Admin.Chapter.details',compact('data'));  
+    }
+    
+    public function showT($id)
+    {
+        $data = Chapters::with('video')->findOrFail($id);
+        return view('Teacher.Chapter.details',compact('data'));  
     }
 
     /**
@@ -89,6 +122,15 @@ class ChaptersController extends Controller
         $chapters = Chapters::findOrFail($id);
 
         return view('Admin.Chapter.edit',compact('courses','chapters'));
+
+    }
+    
+    public function editT($id)
+    {
+        $courses = Courses::all();
+        $chapters = Chapters::findOrFail($id);
+
+        return view('Teacher.Chapter.edit',compact('courses','chapters'));
 
     }
 
@@ -118,6 +160,25 @@ class ChaptersController extends Controller
             
             return redirect()->route('chapters');
     }
+    public function updatet(Request $request, $id)
+    {
+        $data = Chapters::find($id);
+        $request->validate([
+            'name' => 'required',
+            'courses_id' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data->update([
+            'id' =>request('id'),
+            'name' => request('name'),
+            'description' => request('description'),
+            'courses_id' => request('courses_id'),
+          
+            ]);
+            
+            return redirect()->route('teacher-chapters');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -126,6 +187,12 @@ class ChaptersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        $data = Chapters::find($id);
+        $data->delete();
+        return redirect()->route('chapters');
+    }
+    public function destroyT($id)
     {
         $data = Chapters::find($id);
         $data->delete();

@@ -21,6 +21,12 @@ class CoursesController extends Controller
         return view('Admin.Course.index',compact('courses'));
     }
     
+    public function Teacher()
+    {
+        $courses1 = Courses::with('user','category')->get();
+        return view('Teacher.Course.index',compact('courses1'));
+    }
+    
    
 
     /**
@@ -31,18 +37,18 @@ class CoursesController extends Controller
     public function create()
     {
         $courses = Courses::get();
-        $users = User::where('role','Admin')->get();
+        $users = User::find(auth()->user()->id);
         $categories = Category::all();
         return view('Admin.Course.create',compact('courses','users','categories'));
     }
-    // public function create1()
-    // {
-    //     $courses = Courses::get();
-    //     $users = Auth::user()->role == 'Teacher';
-    //     $categories = Category::all();
-    //     return view('Teacher.Course.create',compact('courses','users','categories'));
-    // }
-
+    public function createT()
+    {
+        $courses = Courses::get();
+        $users = User::find(auth()->user()->id);
+        $categories = Category::all();
+        return view('Teacher.Course.create',compact('courses','users','categories'));
+    }
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -67,8 +73,25 @@ class CoursesController extends Controller
             'image' => request('image'),
         ]);
         return redirect()->route('courses');
+    }
+    public function storeT(Request $request)
+    {
+        $image_file = $this->uploadImage($request->file('image_file'));
+        $request->merge([
+            'image' => $image_file
+        ]);
+        $request['image'] = $image_file;
 
-
+        $request = $request->all();
+        $request['image'] = $image_file;
+        Courses::create([
+            'user_id' => request('user_id'),
+            'category_id' => request('category_id'),
+            'name' => request('name'),
+            'description' => request('description'),
+            'image' => request('image'),
+        ]);
+        return redirect()->route('teacher-courses');
     }
 
     /**
@@ -90,13 +113,26 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$user_id)
     {
       $categories = Category::all();
-      $users = User::all();
+      $users = User::find($user_id);
+    //   dd($user_id);
       $courses = Courses::findOrFail($id);
+    //   dd($users->toArray());
         
       return view('Admin.Course.edit',compact('categories','users','courses'));
+    }
+    
+    public function editT($id,$user_id)
+    {
+      $categories = Category::all();
+      $users = User::find($user_id);
+    //   dd($user_id);
+      $courses = Courses::findOrFail($id);
+    //   dd($users->toArray());
+        
+      return view('Teacher.Course.edit',compact('categories','users','courses'));
     }
 
     /**
@@ -139,6 +175,39 @@ class CoursesController extends Controller
 
         return redirect()->route('courses');
     }
+    public function updateT(Request $request, $id)
+    {
+        $courses = Courses::find($id);
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'user_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        
+        if($request->file('image_file') == null){
+            $request->merge([
+                'image' => $courses->image
+            ]);
+        }else {
+            $this->removeImage($courses->image);
+            $image_file = $this->uploadImage($request->file('image_file'));
+            // dd($image_file);
+            $request->merge([
+                'image' => $image_file
+            ]);
+
+        }
+        $courses->update([
+        'user_id' => request('user_id'),
+        'category_id' => request('category_id'),
+        'name' => request('name'),
+        'description' => request('description'),
+        'image' => request('image'),
+        ]);
+
+        return redirect()->route('teacher-courses');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -154,6 +223,17 @@ class CoursesController extends Controller
         return back();
 
         return redirect()->route('courses');
+        
+    }
+    
+    public function destroyT($id)
+    {
+        $courses = Courses::findOrFail($id);
+        $this->removeImage($courses->image);
+        $courses->delete();
+        return back();
+
+        return redirect()->route('teacher-courses');
         
     }
 

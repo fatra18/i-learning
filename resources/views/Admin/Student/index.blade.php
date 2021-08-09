@@ -97,13 +97,7 @@
                   </svg>
                 </span>
               </a>
-              <form class="d-inline-block" action="{{ route('student.delete',$item->id) }}" method="POST">
-                @csrf
-                <button class="button small red --jb-modal" data-target="sample-modal" type="submit">
-                  <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                </button>
-                @method('DELETE')
-              </form>
+              
             </div>
           </td>
         </tr>

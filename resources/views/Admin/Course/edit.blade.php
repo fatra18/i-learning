@@ -46,11 +46,15 @@
             >
             </div>
         <div class="mt-10">
-          <select name="user_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">
-            @foreach ( $users as $user )
-            <option value="{{ $user->id}}">{{ $user->name }}</option>
-            @endforeach
-          </select>
+          <input 
+          type="text"
+          name="user_id"
+          placeholder="user"
+          class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100"
+          value="{{ $users->id }}"
+
+          >
+      </div>
         </div>
         <div class="mt-10">
           <select name="category_id" id="" class="py-4 w-3/5 rounded-lg px-3 border-2 focus:ring-2 focus:ring-gray-100">

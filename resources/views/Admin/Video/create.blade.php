@@ -23,7 +23,7 @@
       <div class="level-left">
         <div class="level-item">
           <ul>
-            <li>Create Student</li>
+            <li>Create Video</li>
           </ul>
         </div>
       </div>
@@ -58,12 +58,12 @@
                 class="outline-none py-2 w-3/5 px-5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100">
         </div>
         
-        {{-- phone_number --}}
+        {{-- Video --}}
         <div class="mt-5 flex flex-col justify-center">
           <label class="mb-3 text-sm text-gray-900">Video</label>
           <input type="text" name="video"
                 value="{{ old('video') }}"
-                placeholder="phone_number"
+                placeholder="url"
                 class="w-3/6 py-2 px-3 bg-white border-2  focus:ring-2 focus:ring-gray-100 shadow-sm">
         </div>
         

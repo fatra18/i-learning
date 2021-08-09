@@ -16,10 +16,12 @@ class CreateUserSeeder extends Seeder
      */
     public function run()
     {
+
+        User::truncate();
         $user =[
             [
                 'name' => 'Teacher',
-                'email' => 'teacher123@admin.com',
+                'email' => 'teacher123@teacher.com',
                 'role'  => 'Teacher',
                 'password' =>  Hash::make('1234678'),
                 'phone_number' => '087723451862',
@@ -30,7 +32,7 @@ class CreateUserSeeder extends Seeder
             ],
             [
                 'name' => 'Admin',
-                'email' => 'Admin123@Teacher.com',
+                'email' => 'Admin123@admin.com',
                 'role' => 'Admin',
                 'password' => bcrypt('1234567'),
             ],
@@ -47,8 +49,8 @@ class CreateUserSeeder extends Seeder
 
             ],
         ];
+       
 
-        User::truncate();
 
         foreach ($user as $key => $value){
             User::create($value);
