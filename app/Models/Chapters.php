@@ -19,7 +19,7 @@ class Chapters extends Model
         return $this->belongsTo(Courses::class, 'course_id', 'id');
     }
 
-    public function video()
+    public function videos()
     {
         return $this->hasMany(Video::class,'chapters_id', 'id');
     }

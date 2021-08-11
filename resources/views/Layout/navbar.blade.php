@@ -10,7 +10,6 @@
              <div class="ml-40 text-gray-100">
                  <a href="{{ route('home') }}" class="pl-7 text-gray-100">Home</a>
                  <a href="" class="pl-7 text-gray-100">About</a>
-                 <a href="{{ route('category-pages') }}" class="pl-7 text-gray-100">Category</a>
              </div>
              
              <ul class="navbar-nav mr-10 flex items-center">

@@ -16,11 +16,22 @@ class PageController extends Controller
         // $jml_category = Courses::with('category')->count();
         $courses = Courses::all();
         $teachers = User::where('role','Teacher')->get();
-        $students = User::where('role','Student')->get();
-        $article = Article::all()->first();
+        $students = User::where('role','Student')->paginate(3);
+        $article = Article::OrderBy('created_at','desc')->take(5)->get();
         // $articles = Article::all();
         
-        // dd($article->toArray());
-        return view('Users.home')->with(['categories' => $categories   , 'courses' => $courses , 'teachers' => $teachers , 'students' => $students , 'article' => $article]);
+        // dd($article[0]->title);
+        return view('Users.home')->with([
+            'categories' =>   $categories   , 'courses' => $courses , 'teachers' => $teachers , 'students' => $students , 'article' => $article ]);
     }
+    
+    public function detailTeacher($id){
+        $teachers = User::where('role','Teacher')->find($id);
+        return view('Users.teachers',compact('teachers'));
+    }
+    public function detailArticle($id){
+        $article = Article::find($id);
+        return view('Users.teachers',compact('article'));
+    }
+    
 }

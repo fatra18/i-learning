@@ -49,7 +49,7 @@ class AuthController extends Controller
             // dd('admin logout');
         }
         if(in_array($role,['Teacher','Student'])){
-            return view('Users.home');
+            return redirect()->route('home');
 
         }
 

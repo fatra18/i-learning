@@ -30,6 +30,12 @@
     </div>
   </section>
 
+     {{-- Create --}}
+     <div class="ml-7 mt-5">
+      <div class="text-center py-1 bg-gray-700 text-gray-100 shadow-xl w-32 rounded-md">
+        <a href="{{ route('student-preview') }}">Create</a>
+      </div>
+    </div>
   {{-- Main Content --}}
   <section class="section main-section">
     <div class="card has-table">
@@ -55,7 +61,6 @@
           <tr>
             <th>id</th>
             <th>Users_name</th>
-            <th>Courses_name</th>
             <th>Content</th>
             <th>Action</th>
           </tr>
@@ -65,7 +70,6 @@
             
             <td data-label="Id">1</td>
             <td data-label="Users_name">Rebecca@gmail.com</td>
-            <td data-label="Courses_name">Kelas Fullstack Javascript</td>
             <td data-label="Content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, molestias quas, aperiam nam, error ipsam natus dolor veritatis ea placeat deserunt veniam quisquam adipisci voluptatem reprehenderit modi neque obcaecati magni?</td>
             <td class="actions-cell">
               <div class="buttons right nowrap">
@@ -106,41 +110,9 @@
   {{-- Footer --}}
   @include('Student.layouts.footer')
 
-  {{-- Details --}}
-  <div id="sample-modal" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button red --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
+  
 
-  {{-- Delete --}}
-  <div id="sample-modal-2" class="modal">
-    <div class="modal-background --jb-modal-close"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Sample modal</p>
-      </header>
-      <section class="modal-card-body">
-        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-        <p>This is sample modal</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button --jb-modal-close">Cancel</button>
-        <button class="button blue --jb-modal-close">Confirm</button>
-      </footer>
-    </div>
-  </div>
+ 
 
 </div>
 

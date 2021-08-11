@@ -49,6 +49,7 @@ class SettingStudent extends Controller
                 'image' => 'required',
                 'address' => 'required',
                 'achievement' => 'required',
+                'description' => 'required',
            
             ]);
             dd($request->toArray());

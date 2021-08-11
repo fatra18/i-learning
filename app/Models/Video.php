@@ -11,6 +11,7 @@ class Video extends Model
         'title',
         'video',
         'chapters_id',
+        'course_id'
         
     ];
 
@@ -20,6 +21,6 @@ class Video extends Model
     }
     public function course()
     {
-        return $this->hasMany(Courses::class,'chapters_id', 'id');
+        return $this->belongsTo(Courses::class,'course_id', 'id');
     }
 }

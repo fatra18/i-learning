@@ -158,8 +158,8 @@ class ChaptersController extends Controller
           
             ]);
             
-            return redirect()->route('chapters');
-    }
+            return redirect()->route('chapters',$request->course_id);
+        }
     public function updatet(Request $request, $id)
     {
         $data = Chapters::find($id);

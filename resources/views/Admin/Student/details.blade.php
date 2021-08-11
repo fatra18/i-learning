@@ -112,7 +112,7 @@
           </p>
         </div>
       </div>
-
+{{-- 
       <div class="relative top-96">
         <div class="flex space-x-4 ml-1 mt-16">
           <h1>Courses_id</h1>
@@ -121,9 +121,9 @@
             {{ $students->achievement }}
           </p>
         </div>
-      </div>
+      </div> --}}
 
-      <div class="relative top-96">
+      {{-- <div class="relative top-96">
         <div class="flex space-x-4 ml-1 mt-16">
           <h1>Chapters_id</h1>
           <span class="absolute left-40">:</span>
@@ -131,7 +131,7 @@
             {{ $students->achievement }}
           </p>
         </div>
-      </div>
+      </div> --}}
     
       
      

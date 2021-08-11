@@ -29,6 +29,8 @@ class CreateUserSeeder extends Seeder
                 'address' => 'Yogyakarta Krapyak',
                 'title' => 'Fullstack Developer',
                 'achievement' => '1st Hacking',
+                'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+
             ],
             [
                 'name' => 'Admin',
@@ -46,6 +48,7 @@ class CreateUserSeeder extends Seeder
                 'address' => 'Yogyakarta Krapyak',
                 'title' => 'Fullstack Developer',
                 'achievement' => '1st Hacking',
+                'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
 
             ],
         ];

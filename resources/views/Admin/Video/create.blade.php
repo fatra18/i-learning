@@ -68,15 +68,29 @@
         </div>
         
         {{-- Title --}}
-       <div class="mt-5">
+        {{-- <div class="mt-5">
         <select class=" block form-select py-4 px-3 w-3/5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100" name="chapters_id" type="text" value="{{ old('chapters_id') }}" >
           @foreach ( $chapter as $item )
           <option value="{{ $item->id}}">{{ $item->name }}</option>
           @endforeach
         </select>
-       </div>
+       </div>  --}}
+       
+       {{-- <div class="mt-5">
+        <select class=" block form-select py-4 px-3 w-3/5 rounded-lg border-2 focus:ring-2 focus:ring-gray-100" name="course_id" type="text" value="{{ old('course_id') }}" >
+          @foreach ( $chapter as $item )
+          <option value="{{ $item->course->id}}">{{ $item->course->name }}</option>
+          @endforeach
+        </select>
+       </div> --}} 
 
-        
+        <input type="hidden" value="{{ $chapter->id }} " name="chapters_id">
+        <input type="hidden" value="{{ $course->id }} " name="course_id">
+
+        {{-- @php
+            dd($course->id);
+        @endphp --}}
+
 
         
         

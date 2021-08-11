@@ -8,8 +8,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChaptersController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailTeacherController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PreviewController;
 use App\Http\Controllers\SettingTeacher;
@@ -93,7 +95,7 @@ Route::prefix('/admin')->group(function(){
     Route::delete('/chapters/delete/{id}',[ChaptersController::class,'destroy'])->name('chapter.delete');
 
     // Video
-    Route::get('/video/create/{id}',[VideoController::class,'create'])->name('video.create');
+    Route::get('/video/create/{id}/{course_id}',[VideoController::class,'create'])->name('video.create');
     Route::post('/video/create',[VideoController::class,'store'])->name('video.store');
     Route::get('/video/edit/{id}/{chapters_id}',[VideoController::class,'edit'])->name('video.edit');
     Route::put('/video/update/{id}',[VideoController::class,'update'])->name('video.update');
@@ -150,16 +152,31 @@ Route::prefix('Student')->group(function(){
     Route::get('/setting/edit/{id}',[SettingStudent::class,'Studentedit'])->name('Student-setting-edit');
     Route::put('/setting/update/{id}',[SettingStudent::class,'Studentupdate'])->name('Student-setting-update');
     Route::get('/setting/show/{id}',[SettingStudent::class,'Studentshow'])->name('Student-setting-show');
-    Route::get('preview',[PreviewController::class,'preview'])->name('student-preview');
+    Route::get('preview',[PreviewController::class,'index'])->name('student-preview');
+    Route::get('preview/create',[PreviewController::class,'create'])->name('student-preview');
 });
 
 Route::prefix('/')->group(function () {
-    // Route::get('/', function () {
-    //     return view('Users.home');
-    // })->name('home');;
-    Route::get('/',[PageController::class,'index'])->name('home');
+    // Route::get('{id}/{article_id}',[PageController::class,'index'])->name('home');
+    Route::get('/details/teachers/{id}',[PageController::class,'detailTeacher'])->name('details-teachers');
+    Route::get('/details/articles/{id}',[PageController::class,'detailArticle'])->name('details-article');
     // Route::get('courses',[CoursesController::class,'index1'])->name('courses');
     // Route::get('/courses/create',[CoursesController::class,'create1'])->name('courses.create');
+
+    Route::get('class-detail/{id}',[ClassController::class,'detail'])->name('class.detail');
+    Route::get('/class/video/{classid}/{videoid}', [ClassController::class, 'chapter_gallery'])->name('classes.chapter');
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     Route::get('user/login', function () {
         return view('Users.login');
@@ -169,9 +186,9 @@ Route::prefix('/')->group(function () {
         return view('Users.register');
     })->name('register');
      
-    Route::get('category', function () {
-        return view('Users.category');
-    })->name('category-pages');
+    // Route::get('category', function () {
+    //     return view('Users.category');
+    // })->name('category-pages');
      
     Route::get('article', function () {
         return view('Users.article');
@@ -186,17 +203,23 @@ Route::prefix('/')->group(function () {
     // })->name('setting');
    
     
-    Route::get('/details-course', function () {
-        return view('Users.details-course');
-    })->name('course-details');
+    // Route::get('/details-course', function () {
+    //     return view('Users.details-course');
+    // })->name('course-details');
 });
 
 
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home')->middleware('is_admin');
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('home/{category?}',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('category/{category?}/{course?}',[App\Http\Controllers\HomeController::class, 'detailCategory'])->name('details-category');
+Route::get('articles/{id}',[App\Http\Controllers\HomeController::class, 'detailArticle'])->name('details');
+Route::get('details/{course_id}/{chapter_id?}/{video_id?}',[App\Http\Controllers\HomeController::class, 'detailCourse'])->name('details-course');
+Route::post('preview/{course_id}/{id?}',[App\Http\Controllers\HomeController::class,'reviews'])->name('review');
+Route::post('preview/{id}',[App\Http\Controllers\HomeController::class,'reviewsUpdate'])->name('review-update');
 // Auth
 
+
+ 
 
 Auth::routes();
 

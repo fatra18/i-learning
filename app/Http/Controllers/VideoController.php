@@ -5,14 +5,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Video;
 use App\Models\Chapters;
-
+use App\Models\Courses;
 
 class VideoController extends Controller
 {
-    public function create($id)
+    public function create($id,$course_id)
     {
-        $chapter = Chapters::with('video')->where('id',$id)->get();        
-        return view('Admin.Video.create',compact('chapter'));
+        // $chapter = Chapters::with('video','course')->where('id',$id)->get();
+        $chapter = Chapters::find($id);
+        $course = Courses::find($course_id);
+        // dd($chapter->toArray());        
+
+        return view('Admin.Video.create',compact('chapter', 'course'));
     }
     
     public function createT($id)
@@ -27,6 +31,7 @@ class VideoController extends Controller
             'title' => 'required',
             'video' => 'required',
             'chapters_id' => 'required',
+            'course_id' => 'required',
 
         ]);
 
@@ -34,13 +39,15 @@ class VideoController extends Controller
         'title' => request('title'),
         'video' => request('video'),
         'chapters_id' => request('chapters_id'),
+        'course_id' => request('course_id'),
+        
         ]));
-        // dd($request);
+        // dd($request->toArray());
         return redirect()->route('chapters', $request->chapters_id);
 
         
     }
-    public function storeT(Request $request)
+    public function storeT(Request $request )
     {
         $request->validate([
             'title' => 'required',

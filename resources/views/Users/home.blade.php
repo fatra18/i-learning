@@ -58,7 +58,7 @@
          <div class="flex gap-14 flex-wrap justify-center">
                 @foreach ($courses as $course )
                 <div class="bg-blue-900 shadow-xl w-2/5 flex rounded-r-xl rounded-l-lg ">
-                    <a href="{{ route('course-details') }}">
+                    <a href="{{ route('details-course', $course->id) }}">
                      <div class="ml-5">
                          <h1 class="pt-10 pb-5 font-bold text-gray-100 ">{{ $course->name }}</h1>
                          <p class=" w-11/12 leading-6 pb-5 text-gray-100 ">{{ $course->description }}
@@ -72,9 +72,23 @@
                      <img src="/profile/{{ $course->image }}" alt="" class="w-64 h-68 bg-cover bg-center rounded-r-xl mr-4">
                   </div>
                 @endforeach
-                  
          </div>
      </div>
+     {{-- @foreach ($courses as $course )
+     <a href="{{ route('details-course',$course->id) }}">
+        <div data-aos="fade-up" data-aos-delay="" class="w-80 md:w-96 p-4 bg-white rounded-2xl shadow-lg">
+            <div class="">
+                <img src="/profile/{{ $course->image }}" alt="" class="w-64 h-68 bg-cover bg-center rounded-r-xl mr-4">
+            </div>
+            <div class="py-2 text-gray-700 border-b-2">
+                <h1 class="text-xl font-bold pb-3">{{ $course->name }}</h1>
+            </div>
+            <p class="italic text-blue-900">{{ $course->category->name }}</p>
+        </div>
+    </a>
+    @endforeach --}}
+
+    
 
      {{-- adversiting --}}
      <div class="bg-blue-900 shadow-xl mt-36 w-11/12 mx-auto rounded-xl" data-aos="fade-up">
@@ -107,11 +121,12 @@
      <div class="flex mt-20 gap-20 ml-10" data-aos="fade-down">
         @foreach ($students as $student )
         <div class="">
-            <img src="/profile/{{ $student->image }}" alt="" class="w-11/12 relative rounded-t-xl">
-            <div class="bg-blue-900 shadow-xl w-11/12 rounded-b-2xl">
+            <img src="/profile/{{ $student->image }}" alt="" class="w-full relative rounded-t-xl">
+            <div class="bg-blue-900 shadow-xl w-full rounded-b-2xl">
                <h1 class="pt-7 pl-5 font-bold text-gray-100">{{ $student->name }}</h1>
                <small class="pt-7 pl-5 text-gray-100 ">{{ $student->title }}</small>
-              
+               <p class=" px-5 py-5 w-full text-gray-100">{{ $student->description }}
+                </p>
             </div>
         </div>
         @endforeach
@@ -126,7 +141,7 @@
      <div class="" data-aos="fade-up">
          <div class="relative flex  ml-20 mt-20">  
             @foreach ($teachers as $teacher )
-            <a href="{{ route('teacher-details') }}">
+            <a href="{{ route('details-teachers',$teacher->id) }}">
                 <img src="/profile/{{ $teacher->image }}" alt="" class="w-4/5  relative rounded-t-2xl">
                 <div class="bg-blue-900 shadow-xl relative bottom-40 w-4/5 rounded-t-xl flex  flex-col  mr-8 ">
                     <p class="pt-7 pb-4 text-xl text-gray-100 font-bold ml-7">{{ $teacher->name }}</p>
@@ -145,32 +160,33 @@
      <div class="text-center text-4xl text-gray-100" data-aos="fade-down">
          <h1>Most recent in Fatess Store</h1>
      </div>
-
+     
      {{-- Article --}}
+     
      <div class="grid grid-cols-12 gap-2 items-center mt-20" data-aos="fade-up">
-
             <div class="col-span-6 ml-5 mt-5">
-                <a href="{{ route('article-details') }}">
-                    <img src="/profile/{{ $article->image }}" alt="" class="rounded-xl">
+                <a href="{{ route('details',$article[0]->id) }}">
+                    <img src="/profile/{{ $article[0]->image }}" alt="" class="rounded-xl">
                 </a>
-            </div>
-            <div class="col-span-3 mt-0">
-               <a href="{{ route('article-details') }}">
-                 <img src="/profile/{{ $article->image }}" alt="" class="w-11/12 my-5 rounded-xl ml-5">
+            </div> 
+            
+             <div class="col-span-3 mt-0">
+               <a href="{{ route('details',$article[1]->id) }}">
+                 <img src="/profile/{{ $article[1]->image }}" alt="" class="w-11/12 my-5 rounded-xl ml-5">
                </a>
-               <a href="{{ route('article-details') }}">
-                <img src="/profile/{{ $article->image }}" alt="" class="w-11/12 rounded-xl ml-5">
+               <a href="{{ route('details',$article[2]->id) }}">
+                <img src="/profile/{{ $article[2]->image }}" alt="" class="w-11/12 rounded-xl ml-5">
 
                </a>
             </div>
             <div class="col-span-3 mt-0">
-                <a href="{{ route('article-details') }}">
-                    <img src="/profile/{{ $article->image }}" alt="" class="w-11/12 my-5 rounded-xl">
+                <a href="{{ route('details',$article[3]->id) }}">
+                    <img src="/profile/{{ $article[3]->image }}" alt="" class="w-11/12 my-5 rounded-xl">
                 </a>
-                <a href="{{ route('article-details') }}">
-                    <img src="/profile/{{ $article->image }}" alt="" class="w-11/12 rounded-xl" >
+                <a href="{{ route('details',$article[4]->id) }}">
+                    <img src="/profile/{{ $article[4]->image }}" alt="" class="w-11/12 rounded-xl" >
                 </a>
-            </div>
+            </div> 
      </div>
      
     </div>

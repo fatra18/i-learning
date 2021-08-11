@@ -19,29 +19,26 @@
             </div>
             <div class="flex" >
                 <div class="border-2 border-gray-100 w-1/4 flex flex-col bg-blue-900 my-10 ml-0 h-full rounded-md" data-aos="fade-down">
-                    <div class="text-gray-100 my-5 ">
-                        <a href="#" class="ml-7 text-xl font-bold ">Fullstack Developer</a>
-                        <div class="border-b-2 w-full mt-5"></div>
-                    </div>
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-7 text-xl font-bold">UI UX</a>
-                        <div class="border-b-2 w-full mt-5"></div>
-                    </div>
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-7 text-xl font-bold">Backend</a>
-                        <div class="border-b-2 w-full mt-5"></div>
-                    </div>
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-7 text-xl font-bold">Frontend</a>
-                        <div class="border-b-2 w-full mt-5"></div>
-                    </div>
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-7 text-xl font-bold">Ilustrator</a>
-                        <div class="border-b-2 w-full mt-5"></div>
-                    </div>
-                    <div class="text-gray-100 my-5">
-                        <a href="#" class="ml-7 text-xl font-bold">VideoGrapichs</a>
-                    </div>
+                   @foreach ($category as $item )
+                   <div class="text-gray-100 my-5 ">
+                    <a 
+                    {{-- href="
+                        {{ route('details-category'),[
+                       
+					
+                    ] }}"  --}}
+                   
+                    
+                    class="ml-7 text-xl font-bold ">
+                    
+                    {{ $item }}
+                    
+                    
+                    </a>
+                    <div class="border-b-2 w-full mt-5"></div>
+                </div>
+                   @endforeach
+                  
                 </div>
                 <div class="border-2 border-blue-900 w-11/12 flex flex-wrap ml-5 items-center justify-center  mt-10 h-full mb-10 rounded-md" data-aos="fade-down">
                     <div class="bg-blue-900 shadow-sm w-5/12 h-2/5  mt-8 flex rounded-r-xl rounded-l-lg">

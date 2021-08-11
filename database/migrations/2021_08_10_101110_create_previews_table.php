@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCoursesIdToUsersTable extends Migration
+class CreatePreviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddCoursesIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('courses_id')->nullable();
-            $table->string('chapters_id')->nullable();
-
+        Schema::create('previews', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->text('content');
+            $table->foreignid('user_id');
         });
     }
 
@@ -27,8 +28,6 @@ class AddCoursesIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('previews');
     }
 }
